@@ -22,7 +22,7 @@
   4. Fim do Caso de Uso  
 
 **Fluxo Alternativo 01(1):** Administrador deseja editar as informações de um dado Evento  
-  1. include CSU01  
+  1. include CSU01(Pesquisar Evento)  
   2. Administrador informa ao sistema que deseja alterar informações do Evento em questão  
   3. Sistema apresenta todas as informações do Evento, pedindo que Administrador informe que informações deseja alterar  
   4. Administrador informa quais informações ele deseja alterar, bem como pelo que ele há de substituir  
@@ -30,7 +30,7 @@
   6. Fim do Caso de Uso  
 
 **Fluxo Alternativo 02(1):** Administrador deseja remover um Evento
-  1. include CSU01  
+  1. include CSU01(Pesquisar Evento)  
   2. Administrador informa ao sistema que deseja remover o Evento em questão  
   3. Sistema pede confirmação  
   4. Administrador confirma  
