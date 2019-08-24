@@ -21,7 +21,7 @@
 
 **Fluxo de Exceção (5):** Violação da RN04  
   1. Caso o Administrador tente indicar um dos autores do Artigo como seu revisor, o sistema o informará que tal ação não é permitida, e pedirá que escolha outro;  
-  2. O Caso de Uso segue no passo 4;
+  2. O Caso de Uso segue no passo 4;  
 
 **Fluxo de Exceção (5):** Violação da RN05  
   1. Caso o Administrador tente indicar um professor que possui 2 artigos na fila de revisão, o sistema o informará que tal ação não é permitida, e pedirá que escolha outro;  
