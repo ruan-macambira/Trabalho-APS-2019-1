@@ -13,9 +13,11 @@
   6. Fim do Caso de Uso.
 
 **Fluxo Alternativo (3):** Administrador não informa nenhum parâmetro ao sistema  
-  a. Sistema exibe todos os professores registrados no sistema;
-  b. Caso de Uso segue no Passo 5.
+  1. Sistema exibe todos os professores registrados no sistema;  
+  2. Caso de Uso segue no Passo 5.  
+
 **Fluxo de Exceção (4):** Não há Professores registrados que condizam com os parâmetros do Administrador  
-  a. Sistema informa que nenhum professor corresponde à busca;
-  b. Fim do Caso de Uso.
+  1. Sistema informa que nenhum professor corresponde à busca;  
+  2. Fim do Caso de Uso.  
+
 **Pós-condição:** Em caso de sucesso, Administrador selecionou um professor  

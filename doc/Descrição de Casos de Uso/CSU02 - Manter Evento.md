@@ -16,30 +16,30 @@
   4. O Sistema registra um novo Evento no Sistema  
 
 **Fluxo Alternativo 00(FP: 2,3; FA01: c,d):** Administrador deseja  cancelar operação 
-  a. Administrador informa que deseja cancelar operação 
-  b. Sistema pede confirmação  
-  c. Usuário confirma  
-  d. Fim do Caso de Uso  
+  1. Administrador informa que deseja cancelar operação 
+  2. Sistema pede confirmação  
+  3. Usuário confirma  
+  4. Fim do Caso de Uso  
 
 **Fluxo Alternativo 01(1):** Administrador deseja editar as informações de um dado Evento  
-  a. include CSU01  
-  b. Administrador informa ao sistema que deseja alterar informações do Evento em questão  
-  c. Sistema apresenta todas as informações do Evento, pedindo que Administrador informe que informações deseja alterar  
-  d. Administrador informa quais informações ele deseja alterar, bem como pelo que ele há de substituir  
-  e. Sistema registra alterações feitas no Evento  
-  f. Fim do Caso de Uso  
+  1. include CSU01  
+  2. Administrador informa ao sistema que deseja alterar informações do Evento em questão  
+  3. Sistema apresenta todas as informações do Evento, pedindo que Administrador informe que informações deseja alterar  
+  4. Administrador informa quais informações ele deseja alterar, bem como pelo que ele há de substituir  
+  5. Sistema registra alterações feitas no Evento  
+  6. Fim do Caso de Uso  
 
 **Fluxo Alternativo 02(1):** Administrador deseja remover um Evento
-  a. include CSU01  
-  b. Administrador informa ao sistema que deseja remover o Evento em questão  
-  c. Sistema pede confirmação  
-  d. Administrador confirma  
-  e. Sistema remove Evento do sistema
-  f. Fim do Caso de Uso
+  1. include CSU01  
+  2. Administrador informa ao sistema que deseja remover o Evento em questão  
+  3. Sistema pede confirmação  
+  4. Administrador confirma  
+  5. Sistema remove Evento do sistema
+  6. Fim do Caso de Uso
 
-**Fluxo de Exceção (FP: d):** Violação à RN01
-  a. Caso o Evento que o Administrador deseja excluir contenha artigos vinculados a ele, o Sistema deve impedir sua remoção, informando ao Administrador do ocorrido
-  b. Fim do Caso de Uso
+**Fluxo de Exceção (FP: d):** Violação à RN01  
+  1. Caso o Evento que o Administrador deseja excluir contenha artigos vinculados a ele, o Sistema deve impedir sua remoção, informando ao Administrador do ocorrido  
+  2. Fim do Caso de Uso
 
 **Pós-condição:** A Base de Dados de Eventos é atualizada  
 **Regras de Negócio:** RN01  
