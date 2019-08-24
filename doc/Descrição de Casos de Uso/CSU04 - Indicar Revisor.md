@@ -1,6 +1,7 @@
 ### Indicar Revisor (CSU04) ###
 **Sumário:** Administrador Atribui a tarefa de Revisar um artigo a um professor  
 **Ator Primário:** Administrador  
+**Atores Secundários:** Usuário, Professor  
 **Precondições:** Administrador identificado pelo sistema  
 **Fluxo Principal:**  
   1. include CSU01(Pesquisar Evento);  
