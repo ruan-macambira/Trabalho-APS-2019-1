@@ -15,7 +15,7 @@
      * Palavras-Chave (escolher entre cadastradas no sistema);  
   4. O Sistema registra um novo Evento no Sistema  
 
-**Fluxo Alternativo 00(FP: 2,3; FA01: c,d):** Administrador deseja  cancelar operação 
+**Fluxo Alternativo 00(FP: 2, 3; FA01: 3, 4):** Administrador deseja  cancelar operação 
   1. Administrador informa que deseja cancelar operação 
   2. Sistema pede confirmação  
   3. Usuário confirma  
