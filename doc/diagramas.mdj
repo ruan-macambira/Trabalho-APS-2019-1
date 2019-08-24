@@ -1018,11 +1018,11 @@
 												"$ref": "AAAAAAFsrKkfVj1By6w="
 											},
 											"font": "Arial;13;1",
-											"left": 485,
+											"left": 498.5,
 											"top": 574,
-											"width": 103,
+											"width": 171,
 											"height": 13,
-											"text": "Manter cadastro"
+											"text": "Manter cadastro de Usuário"
 										},
 										{
 											"_type": "LabelView",
@@ -1053,9 +1053,9 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 480,
+									"left": 493.5,
 									"top": 567,
-									"width": 113,
+									"width": 181.21533203125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFsrKkfVj1Cy6M="
@@ -1155,7 +1155,7 @@
 							"containerChangeable": true,
 							"left": 456,
 							"top": 552,
-							"width": 161,
+							"width": 256,
 							"height": 56,
 							"nameCompartment": {
 								"$ref": "AAAAAAFsrKkfVj1By6w="
@@ -4098,8 +4098,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 460,
-									"top": 461,
+									"left": 479,
+									"top": 456,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -4119,8 +4119,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 471,
-									"top": 451,
+									"left": 489,
+									"top": 445,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -4140,8 +4140,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 437,
-									"top": 480,
+									"left": 458,
+									"top": 477,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -4161,8 +4161,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 414,
-									"top": 407,
+									"left": 415,
+									"top": 395,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -4183,7 +4183,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 425,
-									"top": 400,
+									"top": 387,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -4203,8 +4203,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 390,
-									"top": 421,
+									"left": 393,
+									"top": 412,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -4224,8 +4224,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 506,
-									"top": 515,
+									"left": 544,
+									"top": 516,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -4244,7 +4244,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 515,
+									"left": 551,
 									"top": 505,
 									"height": 13,
 									"alpha": -0.7853981633974483,
@@ -4264,8 +4264,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 488,
-									"top": 536,
+									"left": 528,
+									"top": 539,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -4310,7 +4310,7 @@
 								"$ref": "AAAAAAFsrLMtxkcuyiI="
 							},
 							"lineStyle": 1,
-							"points": "386:403;512:551",
+							"points": "386:395;553:551",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFstt7gHU/8LvA="
@@ -7080,7 +7080,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFsrKGHZTvrZUo="
 					},
-					"name": "Manter cadastro"
+					"name": "Manter cadastro de Usuário"
 				},
 				{
 					"_type": "UMLUseCase",
