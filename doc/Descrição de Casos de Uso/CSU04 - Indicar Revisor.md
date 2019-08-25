@@ -11,6 +11,7 @@
   5. Administrador informa a Sistema que o Professor escolhido será aquele o selecionado no passo anterior;  
   6. Sistema pede confirmação;  
   7. Administrador Confirma;
+  9. Sistema atualiza a situação do Artigo de "Aguardando Revisão" para "Em Revisão" (RN06);
   8. Sistema Envia Mensagem a Professor informando que há uma nova revisão que lhe fora atribuída;  
   9. Sistema Envia Mensagem aos autores do Artigo da mudança de status do artigo, obedecendo à RN06;  
   10. Fim do Caso de Uso.  
@@ -19,6 +20,8 @@
   1. Administrador informa ao sistema que deseja cancelar a ação de Indicar um Revisor a um Artigo;  
   2. Sistema pede Confirmação;  
   3. Usuário confirma;  
+  4. Sistema Cancela Operação;
+  5. Fim do Caso de Uso;
 
 **Fluxo de Exceção (5):** Violação da RN04  
   1. Caso o Administrador tente indicar um dos autores do Artigo como seu revisor, o sistema o informará que tal ação não é permitida, e pedirá que escolha outro;  
