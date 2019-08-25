@@ -44,11 +44,11 @@
   7. Fim do Caso de Uso.  
 
 **Fluxo de Exceção (3):** Usuário não informa todas as informações requisitadas pelo Sistema
-  1. Sistema avisa que usuário não enviou todas as informações pedidas, e pede para que o faça;
+  1. Sistema avisa que Usuário não enviou todas as informações pedidas, e pede para que o faça;
   2. Caso de Uso continua no passo 3.
 
 **Fluxo de Exceção (3):** Usuário enviou informações inconsistentes ao Sistema
-  1. Caso o usuário tenha enviado uma confirmação (de E-mail ou senha) que não esteja exatamente igual a seu respectivo campo de comparação, o sistema informa e pede para que ponha o mesmo valor nos campos;
+  1. Caso o Usuário tenha enviado uma confirmação (de E-mail ou senha) que não esteja exatamente igual a seu respectivo campo de comparação, o sistema informa e pede para que ponha o mesmo valor nos campos;
   3. Caso de Uso continua no passo 3.
 
 **Pós-condição:** Base de Dados de Usuários atualizada  

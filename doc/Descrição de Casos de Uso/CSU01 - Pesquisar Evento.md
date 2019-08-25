@@ -17,7 +17,7 @@
   1. Sistema Mostra uma Lista contendo todos os Eventos registrados no sistema; 
   2. O Caso de uso segue no passo 5.  
 
-**Fluxo de Exceção (4):** Não há nenhum evento que condiza com as especificações do usuário  
+**Fluxo de Exceção (4):** Não há nenhum evento que condiza com as especificações do Usuário  
   1. Sistema Informa a Usuário que nenhum Evento corresponde à busca;
   2. Fim do Caso de Uso.  
 

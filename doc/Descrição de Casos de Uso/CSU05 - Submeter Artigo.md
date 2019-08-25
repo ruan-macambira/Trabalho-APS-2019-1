@@ -22,11 +22,11 @@
   4. Fim do caso de Uso;
 
 **Fluxo de Exceção (2):** Violação da RN02  
-  1. Caso o usuário tente submeter um artigo num Evento onde o período de submissão já se encerrou, o Sistema o avisará disso;
+  1. Caso o Usuário tente submeter um artigo num Evento onde o período de submissão já se encerrou, o Sistema o avisará disso;
   2. Fim do Caso de Uso.
 
 **Fluxo de Exceção (4):** Usuário não informa todas as informações pedidas
-  1. Caso o usuário não informe todas as informações pedidas pelo sistema, ele é avisado disso;
+  1. Caso o Usuário não informe todas as informações pedidas pelo sistema, ele é avisado disso;
   2. Caso de Uso continua no passo 3.
 
 **Pós-condição:** Em caso de sucesso, um novo artigo que será submetido a revisão foi adicionado no sistema.  

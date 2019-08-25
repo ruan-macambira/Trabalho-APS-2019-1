@@ -1,9 +1,9 @@
 ### Pesquisar Professor (CSU03) ###
-**Sumário:** Administrador pesquisa por um professor por nome ou Área de Concentração   
+**Sumário:** Administrador pesquisa por um Professor por nome ou Área de Concentração   
 **Ator Primário:** Administrador  
 **Precondições:** Administrador identificado pelo Sistema  
 **Fluxo Principal:**
-  1. Administrador informa ao sistema que deseja pesquisar por um professor;  
+  1. Administrador informa ao sistema que deseja pesquisar por um Professor;  
   2. Sistema pede para que Administrador informe alguns parâmetros a fim de filtrar a busca, nenhum deles obrigatório:
      * Nome;  
      * Área de Concentração  
@@ -13,11 +13,11 @@
   6. Fim do Caso de Uso.
 
 **Fluxo Alternativo (3):** Administrador não informa nenhum parâmetro ao sistema  
-  1. Sistema exibe todos os professores registrados no sistema;  
+  1. Sistema exibe todos os Professores registrados no sistema;  
   2. Caso de Uso segue no Passo 5.  
 
 **Fluxo de Exceção (4):** Não há Professores registrados que condizam com os parâmetros do Administrador  
-  1. Sistema informa que nenhum professor corresponde à busca;  
+  1. Sistema informa que nenhum Professor corresponde à busca;  
   2. Fim do Caso de Uso.  
 
-**Pós-condição:** Em caso de sucesso, Administrador selecionou um professor  
+**Pós-condição:** Em caso de sucesso, Administrador selecionou um Professor.  
