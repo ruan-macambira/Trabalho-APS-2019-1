@@ -2,7 +2,7 @@
 **Sumário:** Administrador pesquisa por um Professor por nome ou Área de Concentração   
 **Ator Primário:** Administrador  
 **Precondições:** Administrador identificado pelo Sistema  
-**Fluxo Principal:**
+**Fluxo Principal:**  
   1. Administrador informa ao sistema que deseja pesquisar por um Professor;  
   2. Sistema pede para que Administrador informe alguns parâmetros a fim de filtrar a busca, nenhum deles obrigatório:
      * Nome;  
@@ -10,7 +10,7 @@
   3. Administrador Informa os parâmetros ao Sistema;  
   4. Sistema exibe resultados filtrados pelos parâmetros informados pelo Administrador;  
   5. Administrador Escolhe um dos Professores;  
-  6. Fim do Caso de Uso.
+  6. Fim do Caso de Uso.  
 
 **Fluxo Alternativo (3):** Administrador não informa nenhum parâmetro ao sistema  
   1. Sistema exibe todos os Professores registrados no sistema;  

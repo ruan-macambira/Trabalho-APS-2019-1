@@ -24,11 +24,12 @@
   5. Fim do Caso de Uso;
 
 **Fluxo de Exceção (5):** Violação da RN04  
-  1. Caso o Administrador tente indicar um dos Autores do Artigo como seu revisor, o sistema o informará que tal ação não é permitida, e pedirá que escolha outro;  
+  1. Caso o Administrador tente indicar um dos Autores do Artigo como seu Revisor, o sistema o informará que tal ação não é permitida, e pedirá que escolha outro;  
   2. O Caso de Uso segue no passo 4;  
 
 **Fluxo de Exceção (5):** Violação da RN05  
   1. Caso o Administrador tente indicar um Professor que possui 2 artigos na fila de revisão, o sistema o informará que tal ação não é permitida, e pedirá que escolha outro;  
-  2. O Caso de Uso segue no passo 4;
+  2. O Caso de Uso segue no passo 4;  
+
 **Pós-condição:** Mudança de situação do Artigo; Revisor do Artigo e Usuário publicador são informados do ocorrido.  
 **Regras de Negócio:** RN04, RN05, RN06  
