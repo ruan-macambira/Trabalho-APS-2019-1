@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_011849) do
+ActiveRecord::Schema.define(version: 2019_09_23_040107) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2019_09_23_011849) do
     t.index ["author_id", "article_id"], name: "index_articles_authors_on_author_id_and_article_id"
   end
 
-  create_table "articles_professors", id: false, force: :cascade do |t|
-    t.integer "professor_id", null: false
+  create_table "articles_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "article_id", null: false
-    t.index ["article_id", "professor_id"], name: "index_articles_professors_on_article_id_and_professor_id"
-    t.index ["professor_id", "article_id"], name: "index_articles_professors_on_professor_id_and_article_id"
+    t.index ["article_id", "user_id"], name: "index_articles_users_on_article_id_and_user_id"
+    t.index ["user_id", "article_id"], name: "index_articles_users_on_user_id_and_article_id"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -71,10 +71,11 @@ ActiveRecord::Schema.define(version: 2019_09_23_011849) do
     t.date "event_start"
     t.date "event_finish"
     t.date "submission_start"
-    t.date "submission_end"
+    t.date "submission_finish"
     t.integer "field_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "name"
     t.index ["field_id"], name: "index_events_on_field_id"
   end
 
@@ -85,11 +86,11 @@ ActiveRecord::Schema.define(version: 2019_09_23_011849) do
     t.index ["keyword_id", "event_id"], name: "index_events_keywords_on_keyword_id_and_event_id"
   end
 
-  create_table "events_professors", id: false, force: :cascade do |t|
+  create_table "events_users", id: false, force: :cascade do |t|
     t.integer "event_id", null: false
-    t.integer "professor_id", null: false
-    t.index ["event_id", "professor_id"], name: "index_events_professors_on_event_id_and_professor_id"
-    t.index ["professor_id", "event_id"], name: "index_events_professors_on_professor_id_and_event_id"
+    t.integer "user_id", null: false
+    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
+    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
   end
 
   create_table "fields", force: :cascade do |t|

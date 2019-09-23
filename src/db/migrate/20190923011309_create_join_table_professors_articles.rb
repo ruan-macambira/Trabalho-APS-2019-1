@@ -1,8 +1,8 @@
 class CreateJoinTableProfessorsArticles < ActiveRecord::Migration[5.2]
   def change
-    create_join_table :professors, :articles do |t|
-      t.index [:professor_id, :article_id]
-      t.index [:article_id, :professor_id]
+    create_join_table :users, :articles do |t|
+      t.index [:user_id, :article_id]
+      t.index [:article_id, :user_id]
     end
   end
 end
