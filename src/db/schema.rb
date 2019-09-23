@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_011309) do
+ActiveRecord::Schema.define(version: 2019_09_23_011849) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_09_23_011309) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_articles_on_event_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -62,6 +64,32 @@ ActiveRecord::Schema.define(version: 2019_09_23_011309) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "initials"
+    t.date "event_start"
+    t.date "event_finish"
+    t.date "submission_start"
+    t.date "submission_end"
+    t.integer "field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["field_id"], name: "index_events_on_field_id"
+  end
+
+  create_table "events_keywords", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "keyword_id", null: false
+    t.index ["event_id", "keyword_id"], name: "index_events_keywords_on_event_id_and_keyword_id"
+    t.index ["keyword_id", "event_id"], name: "index_events_keywords_on_keyword_id_and_event_id"
+  end
+
+  create_table "events_professors", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "professor_id", null: false
+    t.index ["event_id", "professor_id"], name: "index_events_professors_on_event_id_and_professor_id"
+    t.index ["professor_id", "event_id"], name: "index_events_professors_on_professor_id_and_event_id"
   end
 
   create_table "fields", force: :cascade do |t|
