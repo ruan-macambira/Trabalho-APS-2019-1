@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_000602) do
+ActiveRecord::Schema.define(version: 2019_09_23_004032) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -31,20 +31,6 @@ ActiveRecord::Schema.define(version: 2019_09_23_000602) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "professors", force: :cascade do |t|
-    t.string "title"
-    t.integer "field_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["field_id"], name: "index_professors_on_field_id"
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "registration"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -56,8 +42,13 @@ ActiveRecord::Schema.define(version: 2019_09_23_000602) do
     t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "institution"
+    t.string "registration"
+    t.string "title"
+    t.integer "field_id"
     t.index ["author_id"], name: "index_users_on_author_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["field_id"], name: "index_users_on_field_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
