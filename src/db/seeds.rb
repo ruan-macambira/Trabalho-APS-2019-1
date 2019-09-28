@@ -14,11 +14,16 @@ if Rails.env == 'development'
     Keyword.find_or_create_by! word: word
   end
 
-  fields = ['Ciência da Computação']
+  fields = [
+    'Ciência da Computação', 'Qualidade de Software',
+    'Engenharia de Software', 'Inteligência Artificial'
+  ]
+  puts "fields..."
   fields.each do |field|
     Field.find_or_create_by! name: field
   end
 
+  puts "events..."
   10.times do
     ev_start = Faker::Date.between(from: Date.new(2019), to:Date.new(2020))
     ev_finish = ev_start.advance(days: 7)
@@ -31,7 +36,7 @@ if Rails.env == 'development'
       event_finish: ev_finish,
       submission_start: sb_start,
       submission_finish: sb_finish,
-      field: Field.find(1),
+      field: Field.all.sample,
       keywords: Keyword.all
     )
   end if Event.all.empty?
@@ -47,10 +52,12 @@ if Rails.env == 'development'
     keywords: Keyword.all
   ) if Event.where(initials: 'ENECOMP').empty?
 
+  puts "authors..."
   20.times do
     Author.create! name: Faker::Name.name, email: Faker::Internet.email
   end if Author.all.empty?
 
+  puts "students and professors..."
   10.times do
     user = [Student, Professor].sample
     user_info = {
@@ -64,6 +71,7 @@ if Rails.env == 'development'
     user.create!(user_info)
   end if User.all.empty?
 
+  puts "articles..."
   10.times do
     Article.create!(
       event: Event.all.sample,
