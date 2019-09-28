@@ -19,6 +19,23 @@ if Rails.env == 'development'
     Field.find_or_create_by! name: field
   end
 
+  10.times do
+    ev_start = Faker::Date.between(from: Date.new(2019), to:Date.new(2020))
+    ev_finish = ev_start.advance(days: 7)
+    sb_start = ev_start.advance(month: -1)
+    sb_finish = sb_start.advance(days: 15)
+    Event.create!(
+      name: Faker::Lorem.sentence,
+      initials: Faker::Name.initials,
+      event_start: ev_start,
+      event_finish: ev_finish,
+      submission_start: sb_start,
+      submission_finish: sb_finish,
+      field: Field.find(1),
+      keywords: Keyword.all
+    )
+  end if Event.all.empty?
+
   Event.create!(
     name: 'Encontro de Computação',
     initials: 'ENECOMP',

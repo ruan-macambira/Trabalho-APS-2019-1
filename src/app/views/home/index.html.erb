@@ -1,0 +1,7 @@
+<h1>Home#index</h1>
+Últimos Eventos Cadastrados:
+<ul>
+<% @latest_events.each do |event| %>
+  <li><%=event.name%></li>
+<%end%>
+</ul>
