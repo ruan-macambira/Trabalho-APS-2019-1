@@ -1,4 +1,56 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong><%=Event.human_attribute_name("name")%>:</strong>
+  <%=@event.name%>
+</p>
+
+<p>
+  <strong><%=Event.human_attribute_name("initials")%>:</strong>
+  <%=@event.initials%>
+</p>
+
+<p>
+  <strong><%=Event.human_attribute_name("event_start")%>:</strong>
+  <%=@event.event_start%>
+</p>
+
+<p>
+  <strong><%=Event.human_attribute_name("event_finish")%>:</strong>
+  <%=@event.event_finish%>
+</p>
+
+<p>
+  <strong><%=Event.human_attribute_name("submission_start")%>:</strong>
+  <%=@event.submission_finish%>
+</p>
+
+<p>
+  <strong><%=Event.human_attribute_name("submission_finish")%>:</strong>
+  <%=@event.submission_finish%>
+</p>
+
+<p>
+  <strong><%=Field.model_name.human%>:</strong>
+  <%=@event.field.name%>
+</p>
+
+<p>
+  <strong><%=Keyword.model_name.human(count: 2)%>:</strong>
+  <ul>
+    <% @event.keywords.each do |keyword| %>
+    <li><%=keyword.word%></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong><%=Article.model_name.human(count: 2)%>:</strong>
+  <ul>
+    <% @event.articles.each do |article| %>
+    <li><%=article.title%></li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

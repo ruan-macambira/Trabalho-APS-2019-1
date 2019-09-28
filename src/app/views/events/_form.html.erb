@@ -11,6 +11,51 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :initials %>
+    <%= form.text_field :initials %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_start %>
+    <%= form.date_field :event_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_finish %>
+    <%= form.date_field :event_finish %>
+  </div>
+
+  <div class="field">
+    <%= form.label :submission_start %>
+    <%= form.date_field :submission_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :submission_finish %>
+    <%= form.date_field :submission_finish %>
+  </div>
+
+  <div class="field">
+    <%= form.label :field_id %>
+    <%= form.collection_select(:field_id, @fields, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= hidden_field_tag "event[keyword_ids][]", nil %>
+    <%= form.label :keyword_id %>
+    <% @keywords.each do |keyword| %>
+    <%= check_box_tag "event[keyword_ids][]", keyword.id,
+        @event.keyword_ids.include?(keyword.id), id: dom_id(keyword) %>
+    <%= label_tag dom_id(keyword), keyword.word %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
