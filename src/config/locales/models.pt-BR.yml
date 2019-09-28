@@ -1,0 +1,43 @@
+"pt-BR":
+  activerecord:
+    models:
+      article:
+        one: Artigo
+        other: Artigos
+      author:
+        one: Autor
+        other: Autores
+      event:
+        one: Evento
+        other: Eventos
+      field:
+        one: Área
+        other: Áreas
+      keyword:
+        one: Palavra-Chave
+        other: Palavras-Chave
+      professor:
+        one: Professor
+        other: Professores
+      student:
+        one: Estudante
+        other: Estudantes
+      user:
+        one: Usuário
+        other: Usuários
+      attributes:
+        article:
+          title: Título
+          abstract: Resumo
+          status: Situação
+        event:
+          name: Nome
+          initials: Iniciais
+          event_start: Início do Evento
+          event_finish: Fim do Evento
+          submission_start: Início do Período de Submissão
+          submission_finish: Fim do Período de Submissão
+        field:
+          name: Área
+        keyword:
+          word: Palavra-Chave
