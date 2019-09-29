@@ -1,4 +1,4 @@
-"pt-BR":
+'pt-BR':
   activerecord:
     models:
       article:
@@ -25,19 +25,40 @@
       user:
         one: Usuário
         other: Usuários
-      attributes:
-        article:
-          title: Título
-          abstract: Resumo
-          status: Situação
-        event:
-          name: Nome
-          initials: Iniciais
-          event_start: Início do Evento
-          event_finish: Fim do Evento
-          submission_start: Início do Período de Submissão
-          submission_finish: Fim do Período de Submissão
-        field:
-          name: Área
-        keyword:
-          word: Palavra-Chave
+    attributes:
+      article:
+        title: Título
+        abstract: Resumo
+        status: Situação
+        user_id: Usuário Postador
+        authors: Autores
+        event_id: Evento
+      event:
+        name: Nome
+        initials: Iniciais
+        event_start: Início do Evento
+        event_finish: Fim do Evento
+        submission_start: Início do Período de Submissão
+        submission_finish: Fim do Período de Submissão
+      user:
+        name: Nome
+        role: Tipo
+        institution: Instituição
+        field_id: Área de Especialização
+        title: Titulação
+      field:
+        name: Área
+      keyword:
+        word: Palavra-Chave
+    enums:
+      article:
+        status:
+          awaiting: Aguardando Revisão
+          pending: Em Revisão
+          failed: Rejeitado
+          passed: Aceito
+      event:
+        status:
+          awaiting: Aguardando Abertura
+          opened: Aberto
+          closed: Fechado

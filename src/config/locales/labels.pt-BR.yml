@@ -1,0 +1,8 @@
+'pt-BR':
+  labels:
+    date:
+      period: '%{start} a %{finish}'
+    models:
+      event:
+        event_period: Período
+        submission_period: Período de Submissão
