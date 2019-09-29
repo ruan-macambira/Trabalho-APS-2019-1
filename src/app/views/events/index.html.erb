@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
-
+<h1><%= Event.model_name.human %></h1>
+<% form_tag events_path,  method: 'GET' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
 <table>
   <thead>
     <tr>
+      <th>Evento</th>
+      <th>Situação</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +17,8 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to event.name, event_path(event.id) %></td>
+        <td><%= t event.status, scope: [:activerecord, :enums, :event, :status] %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -23,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'New Event', new_event_path if current_user.present? && current_user.admin? %>

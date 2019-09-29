@@ -10,23 +10,13 @@
 </p>
 
 <p>
-  <strong><%=Event.human_attribute_name("event_start")%>:</strong>
-  <%=@event.event_start%>
+  <strong><%=t :event_period, scope: [:labels, :models, :event] %>:</strong>
+  <%= t(:period, start: l(@event.event_start), finish: l(@event.event_finish), scope: %i[labels date])%>
 </p>
 
 <p>
-  <strong><%=Event.human_attribute_name("event_finish")%>:</strong>
-  <%=@event.event_finish%>
-</p>
-
-<p>
-  <strong><%=Event.human_attribute_name("submission_start")%>:</strong>
-  <%=@event.submission_finish%>
-</p>
-
-<p>
-  <strong><%=Event.human_attribute_name("submission_finish")%>:</strong>
-  <%=@event.submission_finish%>
+  <strong><%=t :submission_period, scope: [:labels, :models, :event] %>:</strong>
+  <%= t(:period, start: l(@event.submission_start), finish: l(@event.submission_finish), scope: %i[labels date])%>
 </p>
 
 <p>
@@ -35,7 +25,7 @@
 </p>
 
 <p>
-  <strong><%=Keyword.model_name.human(count: 2)%>:</strong>
+  <strong><%=Keyword.model_name.human(count: @event.keywords.count)%>:</strong>
   <ul>
     <% @event.keywords.each do |keyword| %>
     <li><%=keyword.word%></li>
@@ -44,13 +34,20 @@
 </p>
 
 <p>
-  <strong><%=Article.model_name.human(count: 2)%>:</strong>
+  <strong><%=Article.model_name.human(count: @event.articles.count)%>:</strong>
   <ul>
     <% @event.articles.each do |article| %>
-    <li><%=article.title%></li>
+    <li><%= link_to article.title, event_article_path(@event, article) %></li>
     <% end %>
   </ul>
 </p>
 
+<% if current_user.present? %>
+  <% if @event.status == :opened %>
+    <%= link_to 'Submeter Novo artigo', new_event_article_path(@event) %> |
+  <% elsif @event.status == :closed && current_user.admin? %>
+    <%= link_to 'Aplicar Revisores', '#' %> |
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
