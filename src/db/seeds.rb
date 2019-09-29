@@ -9,23 +9,46 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env == 'development'
-  keywords = %w[computação pesquisa desenvolvimento]
+  puts 'keywords...'
+  keywords = %w[computação pesquisa desenvolvimento qualidade ia arquitetura]
   keywords.each do |word|
     Keyword.find_or_create_by! word: word
   end
 
+  puts 'fields...'
   fields = [
+    'NOFIELD',
     'Ciência da Computação', 'Qualidade de Software',
     'Engenharia de Software', 'Inteligência Artificial'
   ]
-  puts "fields..."
   fields.each do |field|
     Field.find_or_create_by! name: field
   end
 
-  puts "events..."
+  Professor.create!(
+    name: 'admin',
+    email: 'admin@admin.com',
+    password: '123456',
+    role: :admin,
+    field: Field.first
+  )
+
+  Professor.create!(
+    name: 'professor',
+    email: 'prof@prof.com',
+    password: '123456',
+    field: Field.first
+  )
+
+  Student.create!(
+    name: 'student',
+    email: 'stud@stud.com',
+    password: '123456'
+  )
+
+  puts 'events...'
   10.times do
-    ev_start = Faker::Date.between(from: Date.new(2019), to:Date.new(2020))
+    ev_start = Faker::Date.between(from: Date.new(2019), to: Date.new(2020))
     ev_finish = ev_start.advance(days: 7)
     sb_start = ev_start.advance(month: -1)
     sb_finish = sb_start.advance(days: 15)
@@ -37,7 +60,7 @@ if Rails.env == 'development'
       submission_start: sb_start,
       submission_finish: sb_finish,
       field: Field.all.sample,
-      keywords: Keyword.all
+      keywords: Keyword.all.sample(2)
     )
   end if Event.all.empty?
 
@@ -48,20 +71,20 @@ if Rails.env == 'development'
     event_finish: Date.new(2019, 10, 15),
     submission_start: Date.new(2019, 9, 1),
     submission_finish: Date.new(2019, 9, 15),
-    field: Field.find(1),
-    keywords: Keyword.all
+    field: Field.first,
+    keywords: Keyword.all.where(id: 1..3)
   ) if Event.where(initials: 'ENECOMP').empty?
 
-  puts "authors..."
+  puts 'authors...'
   20.times do
     Author.create! name: Faker::Name.name, email: Faker::Internet.email
-  end if Author.all.empty?
+  end if Author.all.count == 1
 
-  puts "students and professors..."
+  puts 'students and professors...'
   10.times do
     user = [Student, Professor].sample
     user_info = {
-      author: Author.all.sample,
+      name: Faker::Name.name,
       email: Faker::Internet.email,
       password: Faker::Internet.password(min_length: 6),
       institution: Faker::University.name
@@ -69,9 +92,9 @@ if Rails.env == 'development'
     user_info[:field] = Field.all.sample if user == Professor
     user_info[:registration] = Faker::Number.number.to_s if user == Student
     user.create!(user_info)
-  end if User.all.empty?
+  end if User.all.count == 1
 
-  puts "articles..."
+  puts 'articles...'
   10.times do
     Article.create!(
       event: Event.all.sample,
