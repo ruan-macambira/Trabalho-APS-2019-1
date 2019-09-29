@@ -1,7 +1,19 @@
 <h1>Home#index</h1>
+<p id="notice"><%= notice %></p>
 Últimos Eventos Cadastrados:
-<ul>
-<% @latest_events.each do |event| %>
-  <li><%=event.name%></li>
-<%end%>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @latest_events.each do |event| %>
+    <tr>
+      <td><%=link_to event.name, event_path(event.id)%></td>
+      <td><%=l event.submission_start%> a <%=l event.submission_finish%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+<%=link_to "Listar Todos", events_path%>
