@@ -1,4 +1,37 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong><%= Event.model_name.human %>:</strong>
+  <%=@event.name%>
+</p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<p>
+  <strong><%= Article.human_attribute_name(:title) %>:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong><%=Article.human_attribute_name(:abstract)%>:</strong>
+  <%=@article.abstract%>
+</p>
+
+<p>
+  <strong><%=Article.human_attribute_name(:user_id)%>:</strong>
+  <%= @article.user.email %>
+</p>
+
+<p>
+  <strong><%=Article.human_attribute_name(:status)%>:</strong>
+  <%=t @article.status, scope: [:activerecord, :enums, :article, :status] %>
+</p>
+
+<p>
+  <strong><%=Author.model_name.human(count: @article.authors.count) %>:</strong>
+  <ul>
+  <% @article.authors.each do |author|%>
+    <li><%= author.name %></li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_event_article_path(@event, @article) %> |
+<%= link_to 'Back', event_path %>
