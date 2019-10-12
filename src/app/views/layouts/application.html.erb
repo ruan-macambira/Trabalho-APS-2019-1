@@ -9,22 +9,25 @@
   </head>
 
   <body>
-    <span class="menu">
-        <%= link_to 'Home', root_path %>
-        | <%= link_to 'Eventos', events_path %>
-    </span>
-    <pre style="display: inline">     </pre>
-    <span class="account">
-        <% if user_signed_in? %>
-        <%= link_to current_user.email, home_profile_path %>
-        | <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Entrar", new_user_session_path %>
-        | <%= link_to "Registrar-se", new_user_registration_path %>
-      <% end %>
-    </span>
+    <div class='row'>
+      <div class="col-6">
+          <%= link_to 'Home', root_path %>
+          | <%= link_to 'Eventos', events_path %>
+      </div>
+      <div class="col-6" align='right'>
+          <% if user_signed_in? %>
+          <%= link_to current_user.email, home_profile_path %>
+          | <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Entrar", new_user_session_path %>
+          | <%= link_to "Registrar-se", new_user_registration_path %>
+        <% end %>
+      </div>
+    </div>
     <hr>
-    <%= yield %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <div class='container' style="background: #eee">
+      <%= yield %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </div>
   </body>
 </html>

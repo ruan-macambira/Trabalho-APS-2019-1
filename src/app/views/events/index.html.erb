@@ -1,11 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= Event.model_name.human %></h1>
-<% form_tag events_path,  method: 'GET' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
-<table>
+<h1><%= Event.model_name.human(count: @events.count) %></h1>
+<%= render partial: 'search_form' %>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Evento</th>
@@ -25,6 +22,8 @@
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Event', new_event_path if current_user.present? && current_user.admin? %>
+<div row>
+  <%= link_to 'New Event', new_event_path, class:'btn btn-primary' if current_user.present? && current_user.admin? %>
+</div>
