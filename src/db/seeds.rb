@@ -92,7 +92,7 @@ if Rails.env == 'development'
     user_info[:field] = Field.all.sample if user == Professor
     user_info[:registration] = Faker::Number.number.to_s if user == Student
     user.create!(user_info)
-  end if User.all.count == 1
+  end if User.all.count < 5
 
   puts 'articles...'
   10.times do

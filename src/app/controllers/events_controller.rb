@@ -47,6 +47,12 @@ class EventsController < ApplicationController
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
 
+  def field_professors
+    render json: Professor
+      .search_by_field(params[:field_id])
+      .select(:id, :name)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
