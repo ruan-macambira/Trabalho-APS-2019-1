@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_214958) do
+ActiveRecord::Schema.define(version: 2019_10_12_184708) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -88,9 +88,9 @@ ActiveRecord::Schema.define(version: 2019_09_28_214958) do
 
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "event_id", null: false
-    t.integer "user_id", null: false
-    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
-    t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
+    t.integer "professor_id", null: false
+    t.index ["event_id", "professor_id"], name: "index_events_users_on_event_id_and_professor_id"
+    t.index ["professor_id", "event_id"], name: "index_events_users_on_professor_id_and_event_id"
   end
 
   create_table "fields", force: :cascade do |t|

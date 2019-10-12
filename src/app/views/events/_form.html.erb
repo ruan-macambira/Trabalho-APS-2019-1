@@ -48,17 +48,15 @@
 
   <div class="field">
     <%= form.label :professor_ids %>
-    <%= form.select :professor_ids, [], {prompt: true}, {multiple: true} %>
+    <%= form.select :professor_ids, '', {prompt: true}, {multiple: true} %>
   </div>
 
   <div class="field">
-    <%= hidden_field_tag "event[keyword_ids][]", nil %>
-    <%= form.label :keyword_id %>
-    <% @keywords.each do |keyword| %>
-    <%= check_box_tag "event[keyword_ids][]", keyword.id,
-        @event.keyword_ids.include?(keyword.id), id: dom_id(keyword) %>
-    <%= label_tag dom_id(keyword), keyword.word %>
-    <% end %>
+    <%= form.label :keyword_ids %>
+    <%= form.collection_select(
+      :keyword_ids, @keywords, :id, :word,
+      {prompt: true}, {multiple: true}
+      ) %>
   </div>
 
   <div class="actions">
