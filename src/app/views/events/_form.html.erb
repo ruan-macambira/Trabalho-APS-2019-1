@@ -11,55 +11,69 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class='rowgroup'>
+    <div class='row'>
+      <div class="col-9">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+      
+      <div class="col-3">
+        <%= form.label :initials %>
+        <%= form.text_field :initials, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :initials %>
-    <%= form.text_field :initials %>
-  </div>
+    <div class='row'>
+      <div class="col-6">
+        <%= form.label :event_start %>
+        <%= form.date_field :event_start, class: 'form-control' %>
+      </div>
+      <div class="col-6">
+        <%= form.label :event_finish %>
+        <%= form.date_field :event_finish, class: 'form-control'%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :event_start %>
-    <%= form.date_field :event_start %>
-  </div>
+    <div class='row'>
+      <div class="col-6">
+        <%= form.label :submission_start %>
+        <%= form.date_field :submission_start, class: 'form-control' %>
+      </div>
+      <div class="col-6">
+        <%= form.label :submission_finish %>
+        <%= form.date_field :submission_finish, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :event_finish %>
-    <%= form.date_field :event_finish %>
-  </div>
+    <div class='row'>
+      <div class="col-12">
+        <%= form.label :field_id %>
+        <%= form.collection_select(:field_id, @fields, :id, :name, {prompt: true}, class: 'form-control') %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :submission_start %>
-    <%= form.date_field :submission_start %>
-  </div>
+    <div class='row'>
+      <div class="col-12">
+        <%= form.label :professor_ids %>
+        <%= form.select :professor_ids, '', {prompt: true}, {multiple: true, class: 'form-control'} %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :submission_finish %>
-    <%= form.date_field :submission_finish %>
-  </div>
-
-  <div class="field">
-    <%= form.label :field_id %>
-    <%= form.collection_select(:field_id, @fields, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :professor_ids %>
-    <%= form.select :professor_ids, '', {prompt: true}, {multiple: true} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keyword_ids %>
-    <%= form.collection_select(
-      :keyword_ids, @keywords, :id, :word,
-      {prompt: true}, {multiple: true}
-      ) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class='row'>
+      <div class="col-12">
+        <%= form.label :keyword_ids%>
+        <%= form.collection_select(
+          :keyword_ids, @keywords, :id, :word,
+          {prompt: true}, {multiple: true, class: 'form-control'}
+          ) %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class='col'>
+        <%= form.submit class:'pull-right' %>
+      </div>
+    </div>
   </div>
 <% end %>

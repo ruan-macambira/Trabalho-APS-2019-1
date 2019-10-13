@@ -20,6 +20,15 @@
 </p>
 
 <p>
+  <strong><%=Professor.model_name.human(count: @event.professors.count)%>:</strong>
+  <ul>
+    <% @event.professors.each do |keyword| %>
+    <li><%=keyword.name%></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <strong><%=Keyword.model_name.human(count: @event.keywords.count)%>:</strong>
   <ul>
     <% @event.keywords.each do |keyword| %>

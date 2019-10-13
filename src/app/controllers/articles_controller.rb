@@ -36,12 +36,10 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        redirect_to @article, notice: 'Article was successfully updated.'
-      else
-        render :edit
-      end
+    if @article.update(article_params)
+      redirect_to [@event, @article], notice: 'Article was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -50,6 +48,11 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_url, notice: 'Article was successfully destroyed.'
+  end
+
+  def assign_revisor
+    @article = Article.find(params[:article_id])
+    @event = @article.event
   end
 
   private
@@ -62,7 +65,7 @@ class ArticlesController < ApplicationController
   # only allow the white list through.
   def article_params
     params.require(:article).permit(
-      :title, :abstract, :status, :user_id, :event_id,
+      :title, :abstract, :status, :user_id, :event_id, :pdf,
       authors_attributes: %i[name email]
     )
   end

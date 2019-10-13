@@ -13,6 +13,16 @@
       <div class="col-6">
           <%= link_to 'Home', root_path %>
           | <%= link_to 'Eventos', events_path %>
+          <% if user_signed_in? %>|
+            <% case current_user.role %>
+            <% when 'student' %>
+              <%= link_to 'Artigos Submetidos', '#' %>
+            <% when 'professor' %>
+              <%= link_to 'Revisões de Artigos', '#' %>
+            <% when 'admin' %>
+              <%= link_to 'Pendências de Revisão', '#' %>
+            <% end %>
+          <% end %>
       </div>
       <div class="col-6" align='right'>
           <% if user_signed_in? %>

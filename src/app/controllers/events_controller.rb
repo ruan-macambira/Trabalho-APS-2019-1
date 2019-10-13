@@ -69,7 +69,8 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(
       :name, :initials, :event_start, :event_finish,
-      :submission_start, :submission_finish, :field_id, keyword_ids: []
+      :submission_start, :submission_finish, :field_id,
+      keyword_ids: [], professor_ids: []
     )
   end
 end

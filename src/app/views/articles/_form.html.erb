@@ -12,27 +12,34 @@
   <% end %>
 
   <%= form.hidden_field :event_id, value: @event.id %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class='row'>
+    <div class="col">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :abstract %>
-    <%= form.text_area :abstract %>
+  <div class='row'>
+    <div class="col">
+      <%= form.label :abstract %>
+      <%= form.text_area :abstract, class: 'form-control' %>
+    </div>
+  </div>
+  <div class='row'>
+    <div class="col">
+      <%= form.label :authors %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :authors %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pdf %>
-    <%= form.file_field :pdf %>
+  <div class='row'>
+    <div class="col">
+      <%= form.label :pdf %>
+      <%= form.file_field :pdf %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
+    <%= link_to 'Cancelar', event_path(@event), class: 'btn btn-danger' %>
   </div>
 <% end %>

@@ -40,6 +40,9 @@
         event_finish: Fim do Evento
         submission_start: Início do Período de Submissão
         submission_finish: Fim do Período de Submissão
+        field_id: Área de Concentração
+        professor_ids: Revisores
+        keyword_ids: Palavras-Chave
       user:
         name: Nome
         role: Tipo

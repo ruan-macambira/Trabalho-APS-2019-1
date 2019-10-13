@@ -33,5 +33,10 @@
   </ul>
 </p>
 
+<p>
+    <strong><%=Article.human_attribute_name(:pdf)%>:</strong>
+    <%= link_to 'link', @article.pdf if @article.pdf.attached? %>
+  </p>
+
 <%= link_to 'Edit', edit_event_article_path(@event, @article) %> |
 <%= link_to 'Back', event_path %>
