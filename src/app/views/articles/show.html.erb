@@ -34,9 +34,20 @@
 </p>
 
 <p>
-    <strong><%=Article.human_attribute_name(:pdf)%>:</strong>
-    <%= link_to 'link', @article.pdf if @article.pdf.attached? %>
-  </p>
-
-<%= link_to 'Edit', edit_event_article_path(@event, @article) %> |
-<%= link_to 'Back', event_path %>
+  <strong><%=Article.human_attribute_name(:pdf)%>:</strong>
+  <%= link_to 'link', @article.pdf if @article.pdf.attached? %>
+</p>
+<div class='row'>
+  <div class='col'>
+    <%= link_to 'Edit', edit_event_article_path(@event, @article), class: 'btn btn-primary' %>
+    <%= link_to 'Back', event_path, class: 'btn btn-danger' %>
+  </div>
+  <div class='col' align='right'>
+    <% if @article.proofreader.nil? && current_user.admin? %>
+    <%= link_to 'Atribuir Revisor', event_article_assign_path(@event, @article), class: 'btn btn-secondary' %>
+    <% elsif current_user.professor? && current_user == @article.proofreader %>
+    <%= link_to 'Aceitar', '#', data: {confirm: 'Você tem certeza?'}, class: 'btn btn-success'%>
+    <%= link_to 'Rejeitar', '#', data: {confirm: 'Você tem certeza?'}, class: 'btn btn-danger'%>
+    <% end %>
+  </div>
+</div>

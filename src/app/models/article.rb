@@ -10,8 +10,6 @@ class Article < ApplicationRecord
 
   enum status: %i[awaiting pending failed passed]
 
-  after_update :update_status
-
   def proofreader
     proofreaders.first
   end
@@ -21,14 +19,6 @@ class Article < ApplicationRecord
       proofreaders << val
     else
       proofreaders.first = val
-    end
-  end
-
-  private
-
-  def update_status
-    if awaiting? && proofreaders.present?
-      self.status = :pending
     end
   end
 end

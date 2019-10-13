@@ -1,8 +1,9 @@
+Definir Revisor para <%= @article.title %>
 <%= form_with(model: [@event, @article], local: true) do |form| %>
 <div class='row'>
   <div class='col'>
-    <%= form.label :professor %>
-    <%= form.collection_select(:professor, @event.professors, :id, :name,
+    <%= form.label :professor_ids %>
+    <%= form.collection_select(:professor_ids, @professors, :id, :name,
       {prompt: true}, class: 'form-control')
     %>
   </div>

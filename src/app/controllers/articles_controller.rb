@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
+      @article.pending! if @article.proofreader.present?
       redirect_to [@event, @article], notice: 'Article was successfully updated.'
     else
       render :edit
@@ -52,7 +53,7 @@ class ArticlesController < ApplicationController
 
   def assign_revisor
     @article = Article.find(params[:article_id])
-    @event = @article.event
+    @professors = @event.professors
   end
 
   private
