@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
   # only allow the white list through.
   def article_params
     params.require(:article).permit(
-      :title, :abstract, :status, :user_id, :event_id, :pdf,
+      :title, :abstract, :status, :user_id, :event_id, :pdf, :user_ids,
       authors_attributes: %i[name email]
     )
   end
