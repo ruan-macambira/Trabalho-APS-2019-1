@@ -5,7 +5,10 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    set_status
+    @keywords = Keyword.all
+    @q = Event.ransack(params[:q])
+    @events = @q.result.includes(:keywords)
   end
 
   # GET /events/1
@@ -67,6 +70,12 @@ class EventsController < ApplicationController
   def set_foreign
     @keywords = Keyword.all
     @fields = Field.all
+  end
+
+  def set_status
+    @status = ['awaiting', 'opened', 'closed'].map { |aux|
+      [I18n.t(aux, scope: [:activerecord, :enums, :event, :status]), aux]
+    }
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

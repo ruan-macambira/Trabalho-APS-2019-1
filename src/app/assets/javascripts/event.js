@@ -2,7 +2,6 @@ $('#event_field_id').select2();
 $('#event_professor_ids').select2();
 $('#event_keyword_ids').select2();
 
-
 $('#event_field_id').change(function() {
   $('#event_professor_ids').empty()
   $.post('/field_professors', {
@@ -17,3 +16,5 @@ $('#event_field_id').change(function() {
     })
   })
 })
+
+$('#q_keywords_id_in').select2();

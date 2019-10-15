@@ -47,7 +47,7 @@
 
 <hr>
 
-<%= render 'apply' %>
+<%= render 'apply' if user_signed_in? && @article.proofreader == current_user %>
 <div class='row'>
   <div class='col'>
     <%= link_to 'Edit', edit_event_article_path(@event, @article), class: 'btn btn-primary' %>

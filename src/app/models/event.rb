@@ -6,17 +6,6 @@ class Event < ApplicationRecord
 
   scope :latest, ->(num) { order(created_at: :desc).limit(num) }
 
-  def self.search(**params)
-    keywords = Keyword.where(id: params[:keywords])
-    if params
-      where('name LIKE ?', "%#{params[:name]}%")
-        .where('initials LIKE ?', "%#{params[:initials]}%")
-        .where(keywords: keywords)
-    else
-      all
-    end
-  end
-
   def status
     if Date.today < submission_start
       :awaiting
@@ -24,6 +13,17 @@ class Event < ApplicationRecord
       :opened
     else
       :closed
+    end
+  end
+
+  def self.status(status, date = Date.today)
+    case status.to_sym
+    when :awaiting
+      where('SUBMISSION_START > ?', date)
+    when :opened
+      where('SUBMISSION_START <= :date AND SUBMISSION_FINISH >= :date', {date: date})
+    when :closed
+      where('SUBMISSION_FINISH < :date', {date: date})
     end
   end
 
@@ -37,5 +37,9 @@ class Event < ApplicationRecord
 
   def closed?
     status == :closed
+  end
+
+  def self.ransackable_scopes(auth_object=nil)
+    %i(status)
   end
 end
