@@ -1,13 +1,4 @@
 # frozen_string_literal: true
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 if Rails.env == 'development'
   puts 'keywords...'
   keywords = %w[computação pesquisa desenvolvimento qualidade ia arquitetura]
@@ -46,12 +37,27 @@ if Rails.env == 'development'
     password: '123456'
   )
 
+  puts 'students and professors...'
+  20.times do
+    user = [Student, Professor].sample
+    user_info = {
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      password: '123456',
+      institution: Faker::University.name
+    }
+    user_info[:field] = Field.all.sample if user == Professor
+    user_info[:registration] = Faker::Number.number.to_s if user == Student
+    user.create!(user_info)
+  end if User.all.count < 5
+
   puts 'events...'
   10.times do
     ev_start = Faker::Date.between(from: Date.new(2019), to: Date.new(2020))
     ev_finish = ev_start.advance(days: 7)
     sb_start = ev_start.advance(month: -1)
     sb_finish = sb_start.advance(days: 15)
+    field = Field.all.sample
     Event.create!(
       name: Faker::Lorem.sentence,
       initials: Faker::Name.initials,
@@ -59,7 +65,8 @@ if Rails.env == 'development'
       event_finish: ev_finish,
       submission_start: sb_start,
       submission_finish: sb_finish,
-      field: Field.all.sample,
+      field: field,
+      professors: Professor.where(field: field).sample(3),
       keywords: Keyword.all.sample(2)
     )
   end if Event.all.empty?
@@ -72,7 +79,7 @@ if Rails.env == 'development'
     submission_start: Date.new(2019, 9, 1),
     submission_finish: Date.new(2019, 9, 15),
     field: Field.first,
-    keywords: Keyword.all.where(id: 1..3)
+    keywords: Keyword.all.where(id: 1..3),
   ) if Event.where(initials: 'ENECOMP').empty?
 
   puts 'authors...'
@@ -80,29 +87,16 @@ if Rails.env == 'development'
     Author.create! name: Faker::Name.name, email: Faker::Internet.email
   end if Author.all.count == 1
 
-  puts 'students and professors...'
-  10.times do
-    user = [Student, Professor].sample
-    user_info = {
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      password: Faker::Internet.password(min_length: 6),
-      institution: Faker::University.name
-    }
-    user_info[:field] = Field.all.sample if user == Professor
-    user_info[:registration] = Faker::Number.number.to_s if user == Student
-    user.create!(user_info)
-  end if User.all.count < 5
-
   puts 'articles...'
-  10.times do
+  100.times do
+    users = [true, false].sample ? [Professor.all.sample] : []
     Article.create!(
       event: Event.all.sample,
       user: User.all.sample,
       title: Faker::Lorem.sentence,
       abstract: Faker::Lorem.paragraph,
       authors: Author.all.sample(rand(1..4)),
-      users: [Professor.all.sample]
+      users: users
     )
   end if Article.all.empty?
 end

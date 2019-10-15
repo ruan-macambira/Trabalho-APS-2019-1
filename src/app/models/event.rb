@@ -26,4 +26,16 @@ class Event < ApplicationRecord
       :closed
     end
   end
+
+  def awaiting?
+    status == :awaiting
+  end
+
+  def opened?
+    status == :opened
+  end
+
+  def closed?
+    status == :closed
+  end
 end

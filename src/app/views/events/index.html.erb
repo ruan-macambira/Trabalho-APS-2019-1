@@ -7,6 +7,10 @@
     <tr>
       <th>Evento</th>
       <th>Situação</th>
+      <% if Rails.env == 'development' %>
+      <th>Artigos</th>
+      <th>Professores</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +18,12 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.name, event_path(event.id) %></td>
+        <td><%= link_to "#{event.name}(#{event.initials})", event_path(event.id) %></td>
         <td><%= t event.status, scope: [:activerecord, :enums, :event, :status] %></td>
+        <% if Rails.env == 'development' %>
+        <td><%= event.articles.count %></td>
+        <td><%= event.professors.count %></td>
+        <% end %>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
