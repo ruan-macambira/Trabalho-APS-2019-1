@@ -26,15 +26,17 @@
     </div>
   </div>
   <div class='row'>
-    <%= form.label :authors %>
-    <div id="authors" class="field">
-        <%= form.fields_for :authors do |author_f| %>
-          <%= render 'author_fields', f: author_f %>
-        <% end %>
-        <%= form.label :phones, "<span class='glyphicon glyphicon-phone-alt' aria-hidden='true'></span>".html_safe%>
-        <%= link_to_add_association '[Adicionar Author]', form, :authors %>
-      </div>
+    <div class='col'>
+      <%= form.label :authors %>
+    </div>
   </div>
+  <div id="authors" class="form-group">
+      <%= link_to_add_association '[Adicionar Author]', form, :authors %>
+      <%= form.fields_for :authors do |author_f| %>
+        <%= render 'author_fields', f: author_f %>
+      <% end %>
+      <%= form.label :phones, "<span class='glyphicon glyphicon-phone-alt' aria-hidden='true'></span>".html_safe%>
+    </div>
 
   <div class='row'>
     <div class="col">
