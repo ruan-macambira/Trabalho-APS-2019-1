@@ -9,6 +9,10 @@ class Professor < User
 
   validates :registration, absence: true
 
+  scope :avaliable, lambda { 
+    
+  }
+
   scope :search_by_field, lambda { |fields|
     if fields.nil?
       all

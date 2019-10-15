@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_event, except: :index
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_status, only: %i[show apply]
 
   # GET /articles
   # GET /articles.json
@@ -37,7 +38,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
-      @article.pending! if @article.proofreader.present?
+      @article.pending! if @article.awaiting? && @article.proofreader.present?
       redirect_to [@event, @article], notice: 'Article was successfully updated.'
     else
       render :edit
@@ -56,6 +57,10 @@ class ArticlesController < ApplicationController
     @professors = @event.professors
   end
 
+  def apply
+    @article = Article.find(params[:article_id])
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_article
@@ -66,9 +71,15 @@ class ArticlesController < ApplicationController
   # only allow the white list through.
   def article_params
     params.require(:article).permit(
-      :title, :abstract, :status, :user_id, :event_id, :pdf, :user_ids,
+      :title, :abstract, :status, :user_id, :event_id, :pdf, :user_ids, :status,
       authors_attributes: %i[name email]
     )
+  end
+
+  def set_status
+    @status = ['awaiting', 'failed', 'passed'].map { |aux|
+      [I18n.t(aux, scope: [:activerecord, :enums, :article, :status]), aux]
+    }
   end
 
   def set_event

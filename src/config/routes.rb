@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :articles, except: :index do
       get 'assign', action: 'assign_revisor'
+      get 'apply'
     end
   end
 end

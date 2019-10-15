@@ -11,7 +11,11 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @articles = Article.where(event: @event)
+    if user_signed_in? && current_user.admin?
+      @articles = Article.where(event: @event)
+    else
+      @articles = Article.where(event: @event).passed
+    end
   end
 
   # GET /events/new

@@ -38,10 +38,13 @@
 </p>
 
 <p>
-  <strong><%=Article.model_name.human(count: @event.articles.count)%>:</strong>
+  <strong><%=Article.model_name.human(count: @articles.count)%>:</strong>
   <ul>
-    <% @event.articles.each do |article| %>
-    <li><%= link_to article.title, event_article_path(@event, article) %></li>
+    <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, event_article_path(@event, article) %>
+      (<%= link_to 'Pendente', event_article_assign_path(@event, article) if user_signed_in? && current_user.admin? %>)
+    </li>
     <% end %>
   </ul>
 </p>

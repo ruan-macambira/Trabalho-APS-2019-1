@@ -38,7 +38,7 @@ if Rails.env == 'development'
   )
 
   puts 'students and professors...'
-  20.times do
+  30.times do
     user = [Student, Professor].sample
     user_info = {
       name: Faker::Name.name,
@@ -66,7 +66,7 @@ if Rails.env == 'development'
       submission_start: sb_start,
       submission_finish: sb_finish,
       field: field,
-      professors: Professor.where(field: field).sample(3),
+      professors: Professor.where(field: field).sample(4),
       keywords: Keyword.all.sample(2)
     )
   end if Event.all.empty?
@@ -90,13 +90,15 @@ if Rails.env == 'development'
   puts 'articles...'
   100.times do
     users = [true, false].sample ? [Professor.all.sample] : []
+    status = users.empty? ? :awaiting : :pending
     Article.create!(
       event: Event.all.sample,
       user: User.all.sample,
       title: Faker::Lorem.sentence,
       abstract: Faker::Lorem.paragraph,
       authors: Author.all.sample(rand(1..4)),
-      users: users
+      users: users,
+      status: status
     )
   end if Article.all.empty?
 end
