@@ -5,6 +5,8 @@ class Article < ApplicationRecord
   has_and_belongs_to_many :users
   has_one_attached :pdf
 
+  accepts_nested_attributes_for :authors, reject_if: :all_blank, allow_destroy: true
+
   alias_attribute :sender, :user
   alias_attribute :proofreaders, :users
 

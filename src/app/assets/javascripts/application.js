@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require cocoon
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage

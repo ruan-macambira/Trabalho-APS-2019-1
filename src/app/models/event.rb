@@ -39,7 +39,7 @@ class Event < ApplicationRecord
     status == :closed
   end
 
-  def self.ransackable_scopes(auth_object=nil)
-    %i(status)
+  def self.ransackable_scopes(_auth_object = nil)
+    %i[status]
   end
 end
