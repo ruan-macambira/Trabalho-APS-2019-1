@@ -1,0 +1,7 @@
+'pt-BR':
+  views:
+    article:
+      new: 'Submeter Novo Artigo'
+    event:
+      new: 'Cadastrar Novo Evento'
+      edit: 'Atualizar Informações do Evento'
