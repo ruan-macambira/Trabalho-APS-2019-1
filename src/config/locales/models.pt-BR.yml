@@ -46,6 +46,8 @@
       user:
         name: Nome
         role: Tipo
+        type: Tipo
+        registration: Matrícula
         institution: Instituição
         field_id: Área de Especialização
         title: Titulação

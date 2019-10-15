@@ -4,8 +4,13 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <%= f.email_field :email, autocomplete: 'email', class: 'form-control'%>
   </div>
 
   <div class="form-group">
@@ -20,6 +25,39 @@
   <div class="form-group">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :institution %>
+    <%= f.text_field :institution, class: 'form-control', required: true%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :type %>
+    <%= f.select :type, [['Aluno', 'Student'], ['Professor', 'Professor']],
+    {prompt: true}, class: 'form-control', required: true%>
+  </div>
+
+  <hr>
+
+  <div id='form-student' hidden>
+    <div class='form-group'>
+      <%= f.label :registration %>
+      <%= f.text_field :registration, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div id='form-professor' hidden>
+    <div class='form-group'>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :field_id %>
+      <%= f.collection_select :field_id, Field.all, :id, :name,
+        {prompt: true}, {class: 'form-control'} %>
+    </div>
   </div>
 
   <div class="form-group">
