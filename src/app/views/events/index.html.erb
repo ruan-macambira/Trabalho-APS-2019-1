@@ -35,6 +35,8 @@
 
 <hr>
 
-<div row>
-  <%= link_to 'New Event', new_event_path, class:'btn btn-primary' if current_user.present? && current_user.admin? %>
+<div class='row'>
+  <div class='col' align=right>
+    <%= link_to 'Cadastrar Evento', new_event_path, class:'btn btn-primary' if current_user.present? && current_user.admin? %>
+  </div>
 </div>

@@ -15,34 +15,34 @@
     <div class='row'>
       <div class="col-9">
         <%= form.label :name %>
-        <%= form.text_field :name, class: 'form-control' %>
+        <%= form.text_field :name, class: 'form-control', required: true %>
       </div>
       
       <div class="col-3">
         <%= form.label :initials %>
-        <%= form.text_field :initials, class: 'form-control' %>
+        <%= form.text_field :initials, class: 'form-control', required: true %>
       </div>
     </div>
 
     <div class='row'>
       <div class="col-6">
         <%= form.label :event_start %>
-        <%= form.date_field :event_start, class: 'form-control' %>
+        <%= form.date_field :event_start, class: 'form-control', required: true %>
       </div>
       <div class="col-6">
         <%= form.label :event_finish %>
-        <%= form.date_field :event_finish, class: 'form-control'%>
+        <%= form.date_field :event_finish, class: 'form-control', required: true %>
       </div>
     </div>
 
     <div class='row'>
       <div class="col-6">
         <%= form.label :submission_start %>
-        <%= form.date_field :submission_start, class: 'form-control' %>
+        <%= form.date_field :submission_start, class: 'form-control', required: true %>
       </div>
       <div class="col-6">
         <%= form.label :submission_finish %>
-        <%= form.date_field :submission_finish, class: 'form-control' %>
+        <%= form.date_field :submission_finish, class: 'form-control', required: true %>
       </div>
     </div>
 
