@@ -22,8 +22,8 @@
 <p>
   <strong><%=Professor.model_name.human(count: @event.professors.count)%>:</strong>
   <ul>
-    <% @event.professors.each do |keyword| %>
-    <li><%=keyword.name%></li>
+    <% @event.professors.each do |professor| %>
+    <li><%=professor.name%><%= "(#{professor.email})" if user_signed_in? && current_user.admin?%></li>
     <% end %>
   </ul>
 </p>
@@ -51,12 +51,16 @@
   </ul>
 </p>
 
-<% if current_user.present? %>
-  <% if @event.status == :opened %>
-    <%= link_to 'Submeter Novo artigo', new_event_article_path(@event) %> |
-  <% elsif @event.status == :closed && current_user.admin? %>
-    <%= link_to 'Aplicar Revisores', '#' %> |
+<div class='row'>
+  <div class='col'>
+    <%= link_to 'Voltar', events_path, class: 'btn btn-secondary' %>
+    <% if user_signed_in? %>
+      <% if @event.status == :opened %>
+        <%= link_to 'Submeter Novo artigo', new_event_article_path(@event), class:'btn btn-primary' %>
+      <% elsif @event.status == :closed && current_user.admin? %>
+    <%= link_to 'Aplicar Revisores', '#', class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary pull-right' %>
+  </div>
+</div>

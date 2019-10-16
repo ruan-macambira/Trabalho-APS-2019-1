@@ -77,7 +77,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_status
-    @status = ['awaiting', 'failed', 'passed'].map { |aux|
+    @status = ['pending', 'failed', 'passed'].map { |aux|
       [I18n.t(aux, scope: [:activerecord, :enums, :article, :status]), aux]
     }
   end

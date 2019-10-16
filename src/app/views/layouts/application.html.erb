@@ -18,7 +18,7 @@
             <% when 'student' %>
               <%= link_to 'Artigos Submetidos', '#' %>
             <% when 'professor' %>
-              <%= link_to 'Revisões de Artigos', '#' %>
+              <%= link_to 'Revisões de Artigos', proofreadings_path %>
             <% when 'admin' %>
               <%= link_to 'Pendências de Revisão', '#' %>
             <% end %>
@@ -26,7 +26,7 @@
       </div>
       <div class="col-6" align='right'>
           <% if user_signed_in? %>
-          <%= link_to current_user.email, home_profile_path %>
+          <%= link_to current_user.name, home_profile_path %>
           | <%= link_to t('devise.logout'), destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to "Entrar", new_user_session_path %>

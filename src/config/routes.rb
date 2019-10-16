@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   get 'articles/index'
+  get 'proofreadings', to: 'home#proofreadings'
   get 'profile', to: 'home#profile'
 
   post 'field_professors', to: 'events#field_professors'
