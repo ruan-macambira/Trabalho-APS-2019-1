@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'field_professors', to: 'events#field_professors'
 
   resources :keywords, except: :show
+  resources :fields, except: :show
   resources :events do
     resources :articles, except: :index do
       get 'assign', action: 'assign_revisor'
