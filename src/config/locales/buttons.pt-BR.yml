@@ -1,4 +1,5 @@
 'pt-BR':
   buttons:
     general:
+      new: Cadastrar %{model}
       clear: 'Limpar Filtros'
