@@ -14,8 +14,8 @@
     <% @keywords.each do |keyword| %>
       <tr>
         <td><%= keyword.word%></td>
-        <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
-        <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Atualizar', edit_keyword_path(keyword) %></td>
+        <td><%= link_to 'Remover', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
