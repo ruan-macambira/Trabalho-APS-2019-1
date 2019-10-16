@@ -45,6 +45,7 @@ gem 'devise-bootstrap-views'
 #Kaminari
 gem 'kaminari'
 gem 'kaminari-i18n'
+gem 'bootstrap4-kaminari-views'
 
 gem 'cocoon'
 gem 'ransack'

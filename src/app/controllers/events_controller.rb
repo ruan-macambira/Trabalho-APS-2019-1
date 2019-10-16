@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     set_status
     @keywords = Keyword.all
     @q = Event.ransack(params[:q])
-    @events = @q.result.includes(:keywords)
+    @events = @q.result.includes(:keywords).page(params[:page]).per(5)
   end
 
   # GET /events/1
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 
