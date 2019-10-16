@@ -21,6 +21,9 @@
   </div>
   <div class='row'>
     <div class='col' align=right>
+      <%= link_to events_path, class: 'btn btn-secondary' do %>
+      <i class="fa fa-trash"></i> <%= t 'buttons.general.clear'%>
+      <% end %>
       <%= f.submit 'Buscar', class:'btn btn-primary'%>
     </div>
   </div>
