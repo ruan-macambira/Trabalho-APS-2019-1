@@ -27,7 +27,7 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.new(keyword_params)
 
     if @keyword.save
-      redirect_to @keyword, notice: 'Keyword was successfully created.'
+      redirect_to keywords_path, notice: 'Keyword was successfully created.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class KeywordsController < ApplicationController
   # PATCH/PUT /keywords/1.json
   def update
     if @keyword.update(keyword_params)
-      redirect_to @keyword, notice: 'Keyword was successfully updated.'
+      redirect_to keywords_path, notice: 'Keyword was successfully updated.'
     else
       render :edit
     end

@@ -1,3 +1,7 @@
 .main-container {
   padding: 25pt;
 }
+
+#notice {
+  background: rgba(64,255,64,0.5);
+}
