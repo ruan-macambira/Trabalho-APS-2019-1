@@ -25,6 +25,9 @@
       user:
         one: Usuário
         other: Usuários
+      notification:
+        one: Notificação
+        other: Notificações
     attributes:
       article:
         title: Título

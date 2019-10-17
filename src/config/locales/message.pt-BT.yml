@@ -1,0 +1,7 @@
+'pt-BR':
+  message:
+    article:
+      awaiting: O Artigo "%{article}" foi submetido com sucesso.
+      pending: O Artigo "%{article}" foi enviado para Revisão.
+      failed: O Artigo "%{article}" não foi aprovado.
+      passed: O Artigo "%{article}" foi aprovado.

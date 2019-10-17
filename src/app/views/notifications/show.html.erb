@@ -1,0 +1,16 @@
+<h1><%= Notification.model_name.human(count: 2)%></h1>
+
+<% if @notifications.any? %>
+<table class='table table-striped table-hover'>
+  <tbody>
+      <% @notifications.each do |notif| %>
+      <tr>
+        <td><%= l notif.created_at.advance(hours: -3), format: :short %></td>
+        <td><%= notif.message %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Não há notificações</p>
+<% end %>

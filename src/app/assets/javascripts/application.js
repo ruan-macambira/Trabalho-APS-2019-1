@@ -17,4 +17,7 @@
 //= require activestorage
 //= require turbolinks
 //= require select2
+//= require event.js
+//= require devise.js
+//= require home.js
 //= require_tree .

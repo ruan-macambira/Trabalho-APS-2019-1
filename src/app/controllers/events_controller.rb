@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_foreign, only: %i[new create edit update]
   before_action :set_event, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[show index]
 
   # GET /events
   # GET /events.json

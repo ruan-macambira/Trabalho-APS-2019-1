@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications', to: 'notifications#show'
   get 'home/profile'
   root 'home#index'
   devise_for :users

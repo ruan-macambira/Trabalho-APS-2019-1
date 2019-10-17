@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_event, except: :index
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_status, only: %i[show apply]
+  before_action :authenticate_user!, except: %i[index show]
 
   # GET /articles
   # GET /articles.json
@@ -28,6 +29,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
+      Notification.create(
+        user: current_user, message: I18n.t('message.article.awaiting', article: @article.title)
+      )
       redirect_to [@event, @article], notice: 'Article was successfully created.'
     else
       render :new
@@ -38,7 +42,19 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
-      @article.pending! if @article.awaiting? && @article.proofreader.present?
+      if @article.awaiting? && @article.proofreader.present?
+        @article.pending!
+        Notification.create!(
+          user: current_user,
+          message: I18n.t('message.article.pending', article: @article.title)
+        )
+      end
+      if @article.passed? || @article.failed?
+        Notification.create!(
+          user: current_user,
+          message: I18n.t(@article.status, scope: %i[message article], article: @article.title)
+        )
+      end
       redirect_to [@event, @article], notice: 'Article was successfully updated.'
     else
       render :edit

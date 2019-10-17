@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
   belongs_to :author
+  has_many :notifications
 
   before_validation :bind_author
 
