@@ -1,4 +1,13 @@
 # frozen_string_literal: true
+
+Professor.create!(
+  name: 'admin',
+  email: 'admin@admin.com',
+  password: '123456',
+  role: :admin,
+  field: Field.first
+)
+
 if Rails.env == 'development'
   puts 'keywords...'
   keywords = %w[computação pesquisa desenvolvimento qualidade ia arquitetura]
@@ -15,14 +24,6 @@ if Rails.env == 'development'
   fields.each do |field|
     Field.find_or_create_by! name: field
   end
-
-  Professor.create!(
-    name: 'admin',
-    email: 'admin@admin.com',
-    password: '123456',
-    role: :admin,
-    field: Field.first
-  )
 
   Professor.create!(
     name: 'professor',
