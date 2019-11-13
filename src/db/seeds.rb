@@ -5,8 +5,8 @@ Professor.create!(
   email: 'admin@admin.com',
   password: '123456',
   role: :admin,
-  field: Field.first
-)
+  field: Field.new(name: 'NOFIELD')
+) unless Professor.find_by_name 'admin'
 
 if Rails.env == 'development'
   puts 'keywords...'
@@ -17,7 +17,6 @@ if Rails.env == 'development'
 
   puts 'fields...'
   fields = [
-    'NOFIELD',
     'Ciência da Computação', 'Qualidade de Software',
     'Engenharia de Software', 'Inteligência Artificial'
   ]
