@@ -51,6 +51,7 @@ gem 'ransack'
 gem "font-awesome-rails"
 
 source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-select2'
 end

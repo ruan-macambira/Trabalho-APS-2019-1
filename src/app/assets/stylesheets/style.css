@@ -1,7 +1,12 @@
 .main-container {
-  padding: 25pt;
+  margin-top: 10pt;
+  padding: 10pt;
 }
 
 #notice {
   background: rgba(64,255,64,0.5);
+}
+
+body {
+  padding-top: 56px;
 }

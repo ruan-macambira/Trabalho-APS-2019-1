@@ -49,14 +49,14 @@
     <div class='row'>
       <div class="col-12">
         <%= form.label :field_id %>
-        <%= form.collection_select(:field_id, @fields, :id, :name, {prompt: true}, class: 'form-control') %>
+        <%= form.collection_select(:field_id, @fields, :id, :name, {prompt: true}, class: 'form-control select2') %>
       </div>
     </div>
 
     <div class='row'>
       <div class="col-12">
         <%= form.label :professor_ids %>
-        <%= form.select :professor_ids, '', {prompt: true}, {multiple: true, class: 'form-control'} %>
+        <%= form.select :professor_ids, '', {prompt: true}, {multiple: true, class: 'form-control select2'} %>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
         <%= form.label :keyword_ids%>
         <%= form.collection_select(
           :keyword_ids, @keywords, :id, :word,
-          {prompt: true}, {multiple: true, class: 'form-control'}
+          {prompt: true}, {multiple: true, class: 'form-control select2'}
           ) %>
       </div>
     </div>
