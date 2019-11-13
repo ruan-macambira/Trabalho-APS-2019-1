@@ -24,12 +24,10 @@
   <%=t @article.status, scope: [:activerecord, :enums, :article, :status] %>
 </p>
 
-<% if Rails.env == 'development' %>
 <p>
   <strong><%=Article.human_attribute_name(:proofreader)%>:</strong>
   <%= @article.proofreader.name if @article.proofreader %>
 </p>
-<% end %>
 
 <p>
   <strong><%=Author.model_name.human(count: @article.authors.count) %>:</strong>
