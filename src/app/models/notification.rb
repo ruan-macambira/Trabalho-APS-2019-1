@@ -1,7 +1,7 @@
 class Notification < ApplicationRecord
   belongs_to :article
   belongs_to :user
-  validates_uniqueness_of :status, scope: :article
+  validates_uniqueness_of :status, scope: %i[article role]
 
   def message
     I18n.t(
