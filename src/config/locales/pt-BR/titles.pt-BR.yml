@@ -1,0 +1,10 @@
+'pt-BR':
+  default:
+    title:
+      'Sistema de Submissão de Artigos'
+  home:
+    index:
+      title: Página Inicial
+  events:
+    index:
+      title: Eventos
