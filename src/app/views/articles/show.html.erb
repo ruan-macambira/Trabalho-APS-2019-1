@@ -44,6 +44,7 @@
 
 <hr>
 
+<%= render 'assign' if is_role?('admin') && @article.awaiting? %>
 <%= render 'apply' if user_signed_in? && @article.proofreader == current_user %>
 <div class='row'>
   <div class='col'>

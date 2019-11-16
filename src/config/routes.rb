@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :fields, except: :show
   resources :events do
     resources :articles, except: :index do
-      get 'assign', action: 'assign_revisor'
+      get 'assign'
       get 'apply'
     end
   end

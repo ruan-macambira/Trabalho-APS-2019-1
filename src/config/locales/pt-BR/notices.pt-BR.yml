@@ -2,8 +2,10 @@
   notices:
     articles:
       created: Artigo submetido. Aguardando fim do perídoo de submissão
-      updated: Informações do artigo atualizadas. Aguardando fim do período de submissão
+      updated: Informações do artigo atualizadas. Aguardando fim do período de submissão.
       destroyed: Artigo removido do evento.
+      assigned: Revisor atribuído com sucesso. Autor e Revisor notificados.
+      proofreaded: Resultado registrado com sucesso. Autor notificado.
     events:
       created: Evento Registrado com sucesso.
       updated: Informações do Evento atualizadas com sucesso.

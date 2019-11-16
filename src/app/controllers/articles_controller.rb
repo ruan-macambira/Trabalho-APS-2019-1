@@ -12,7 +12,9 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def show; end
+  def show
+    @professors = @event.professors if @article.awaiting?
+  end
 
   def new
     @article = Article.new
@@ -24,7 +26,6 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
-      notificate! @article
       redirect_to [@event, @article], notice: I18n.t('notices.articles.created')
     else
       render :new
@@ -33,7 +34,6 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      notificate! @article
       redirect_to [@event, @article], notice: I18n.t('notices.articles.updated')
     else
       render :edit
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
     redirect_to articles_url, notice: I18n.t('notices.articles.destroyed')
   end
 
-  def assign_revisor
+  def assign
     @article = Article.find(params[:article_id])
     @professors = @event.professors
   end
