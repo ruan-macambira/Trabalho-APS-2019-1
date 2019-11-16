@@ -1,20 +1,20 @@
 <%= search_form_for @q do |f| %>
-  <div class='row'>
-    <div class='form-group col-9'>
+  <div class='form-row'>
+    <div class='form-group col-lg-9'>
       <%= f.label :name %>
       <%= f.search_field :name_in, class: 'form-control'%>
     </div>
-    <div class='form-group col-3'>
+    <div class='form-group col-lg-3'>
       <%= f.label :initials %>
       <%= f.search_field :initials_in, class: 'form-control' %>
     </div>
   </div>
-  <div class='row'>
-    <div class='form-group col'>
+  <div class='form-row'>
+    <div class='form-group col-lg'>
       <%= f.label :status %>
       <%= f.select :status, @status, {prompt: true}, class: 'form-control' %>
     </div>
-    <div class='form-group col'>
+    <div class='form-group col-lg'>
       <%= f.label :keyword_ids %>
       <%= f.collection_select :keywords_id_in, @keywords, :id, :word, {}, multiple: true, class: 'form-control' %>
     </div>
@@ -22,9 +22,11 @@
   <div class='row'>
     <div class='col' align=right>
       <%= link_to events_path, class: 'btn btn-secondary' do %>
-      <i class="fa fa-trash"></i> <%= t 'buttons.general.clear'%>
+        <i class='fas fa-trash'></i> <%= t 'buttons.general.clear'%>
       <% end %>
-      <%= f.submit 'Buscar', class:'btn btn-primary'%>
+      <%= f.button type: :submit, class:'btn btn-primary' do %>
+        <i class="fas fa-search"></i> <%= t 'buttons.general.search' %>
+      <% end %>
     </div>
   </div>
 <% end %>

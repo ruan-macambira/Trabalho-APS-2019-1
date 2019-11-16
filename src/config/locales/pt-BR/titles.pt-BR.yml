@@ -8,3 +8,9 @@
   events:
     index:
       title: Eventos
+  keywords:
+    index:
+      title: Palavras-Chaves
+  fields:
+    index:
+      title: Áreas de Concentração

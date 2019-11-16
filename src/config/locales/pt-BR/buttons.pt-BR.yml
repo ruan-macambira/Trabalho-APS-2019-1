@@ -2,4 +2,7 @@
   buttons:
     general:
       new: Cadastrar %{model}
-      clear: 'Limpar Filtros'
+      edit: Atualizar Informações
+      clear: Limpar Filtros
+      search: Buscar
+      destroy: Remover %{model}

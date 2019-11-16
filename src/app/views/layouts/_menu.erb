@@ -1,0 +1,19 @@
+<div class="col-lg-3">
+  <h1 class="my-4 text-center">Menu</h1>
+  <div class="list-group">
+    <%= link_to 'Home', root_path, class: 'list-group-item' %>
+    <%= link_to 'Eventos', events_path, class: 'list-group-item' %>
+    <% if user_signed_in? %>
+      <% case current_user.role %>
+      <% when 'student' %>
+        <%= link_to 'Artigos Submetidos', '#', class: 'list-group-item' %>
+      <% when 'professor' %>
+        <%= link_to 'Revisões de Artigos', proofreadings_path, class: 'list-group-item' %>
+      <% when 'admin' %>
+        <%= link_to 'Palavras-Chave', keywords_path, class: 'list-group-item' %> 
+        <%= link_to 'Áreas', fields_path, class: 'list-group-item' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<!-- /.col-lg-3 -->

@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
     @article.user = current_user
     if @article.save
       notificate! @article
-      redirect_to [@event, @article], notice: 'Article was successfully created.'
+      redirect_to [@event, @article], notice: I18n.t('notices.articles.created')
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       notificate! @article
-      redirect_to [@event, @article], notice: 'Article was successfully updated.'
+      redirect_to [@event, @article], notice: I18n.t('notices.articles.updated')
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to articles_url, notice: I18n.t('notices.articles.destroyed')
   end
 
   def assign_revisor

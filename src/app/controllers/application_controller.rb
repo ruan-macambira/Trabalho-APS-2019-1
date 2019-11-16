@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_title
-    @title = I18n.t(
+    @page_title = I18n.t(
       '.title',
       scope: [controller_name, action_name],
       default: I18n.t('default.title')

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     set_status
     @keywords = Keyword.all
     @q = Event.ransack(params[:q])
-    @events = @q.result.includes(:keywords).page(params[:page]).per(5)
+    @events = @q.result.page(params[:page]).per(5)
   end
 
   # GET /events/1
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to @event, notice: I18n.t('notices.events.created')
     else
       render :new
     end
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+      redirect_to @event, notice: I18n.t('notices.events.updated')
     else
       render :edit
     end
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   def destroy
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    redirect_to events_url, notice: I18n.t('notices.events.destroyed')
   end
 
   def field_professors

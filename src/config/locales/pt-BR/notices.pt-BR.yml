@@ -1,0 +1,10 @@
+'pt-BR':
+  notices:
+    articles:
+      created: Artigo submetido. Aguardando fim do perídoo de submissão
+      updated: Informações do artigo atualizadas. Aguardando fim do período de submissão
+      destroyed: Artigo removido do evento.
+    events:
+      created: Evento Registrado com sucesso.
+      updated: Informações do Evento atualizadas com sucesso.
+      destroyed: Evento removido com sucesso.

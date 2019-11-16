@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <p>
   <strong><%= Event.model_name.human %>:</strong>
   <%=@event.name%>
@@ -48,7 +47,7 @@
 <%= render 'apply' if user_signed_in? && @article.proofreader == current_user %>
 <div class='row'>
   <div class='col'>
-    <%= link_to 'Edit', edit_event_article_path(@event, @article), class: 'btn btn-primary' %>
+    <%= link_to t('buttons.general.edit') , edit_event_article_path(@event, @article), class: 'btn btn-primary' %>
     <%= link_to 'Back', event_path(@event), class: 'btn btn-danger' %>
   </div>
   <div class='col' align='right'>
