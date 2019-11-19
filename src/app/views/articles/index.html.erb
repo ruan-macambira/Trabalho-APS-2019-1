@@ -1,18 +1,24 @@
-<h1><%= Article.model_name.human(count: @articles.count) %></h1>
-
+<h1><%= Article.model_name.human(count: 2) %></h1>
+<%= render 'search_form' %>
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>#</th>
       <th><%= Article.human_attribute_name :title %></th>
       <th><%= Article.human_attribute_name :event_id %></th>
+      <th><%= Article.human_attribute_name :created_at %></th>
+      <th><%= Article.human_attribute_name :status %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @articles.each do |article| %>
+    <% @articles.each_with_index do |article, index| %>
       <tr>
+        <th><%= index + 1 %></th>
         <td><%= link_to article.title, event_article_path(article.event, article) %></td>
         <td><%= link_to article.event.initials, event_path(article.event) %></td>
+        <td><%= t 'labels.date.period_ago', period: time_ago_in_words(article.created_at) %></td>
+        <td><%= t article.status, scope: 'activerecord.enums.article.status' %></td>
       </tr>
     <% end %>
   </tbody>

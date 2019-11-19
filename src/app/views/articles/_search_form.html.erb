@@ -1,0 +1,30 @@
+<%= search_form_for @q, url: profile_articles_path do |f| %>
+<div class='form-row'>
+  <%= f.hidden_field :user_id %>
+  <div class='form-group col'>
+      <%= f.label :title %>
+      <%= f.text_field :title_cont, class: 'form-control' %>
+    </div>
+</div>
+<div class='form-row'>
+  <div class='form-gorup col-lg-6'>
+    <%= f.label :event_id %>
+    <%= f.collection_select :event_id_in, @events, :id, :initials, {prompt: true}, class: 'form-control' %>
+  </div>
+  <div class='form-group col-lg-6'>
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select(@statuses), {prompt: true}, class: 'form-control'%>
+  </div>
+
+  <div class='form-row'>
+    <div class='form-group col'>
+      <%= link_to profile_articles_path, class: 'btn btn-secondary' do %>
+        <i class='fas fa-trash'></i> <%= t 'buttons.general.clear' %>
+      <% end %>
+      <%= f.button type: :submit, class: 'btn btn-primary' do %>
+        <i class='fas fa-search'%></i> <%= t 'buttons.general.search' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

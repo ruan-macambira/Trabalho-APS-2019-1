@@ -5,6 +5,8 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   belongs_to :author
   has_many :notifications
+  has_many :articles
+  has_many :events, through: :articles
 
   before_validation :bind_author
 

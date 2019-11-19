@@ -1,16 +1,12 @@
+<h1><%= @article.title %></h1>
+
+<p>
+  <%=@article.abstract%>
+</p>
+
 <p>
   <strong><%= Event.model_name.human %>:</strong>
   <%=@event.name%>
-</p>
-
-<p>
-  <strong><%= Article.human_attribute_name(:title) %>:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong><%=Article.human_attribute_name(:abstract)%>:</strong>
-  <%=@article.abstract%>
 </p>
 
 <p>
@@ -28,14 +24,16 @@
   <%= @article.proofreader.name if @article.proofreader %>
 </p>
 
-<p>
-  <strong><%=Author.model_name.human(count: @article.authors.count) %>:</strong>
-  <ul>
-  <% @article.authors.each do |author|%>
-    <li><%= author.name %></li>
-  <% end %>
-  </ul>
-</p>
+<table class='table table-hover table-striped'>
+  <thead>
+      <th><%=Author.model_name.human(count: @article.authors.count) %></th>
+  </thead>
+  <tbody>
+  <% @article.authors.each do |author|%><tr>
+    <td><%= author.name %></td>
+  </tr><% end %>
+  </tbody>
+</table>
 
 <p>
   <strong><%=Article.human_attribute_name(:pdf)%>:</strong>

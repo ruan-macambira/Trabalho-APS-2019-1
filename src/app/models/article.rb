@@ -15,6 +15,12 @@ class Article < ApplicationRecord
 
   enum status: %i[awaiting pending failed passed]
 
+  def self.statuses_human
+    %i[awaiting pending failed passed].map do |status|
+      I18n.t status, scope: 'activerecord.enums.article.status'
+    end
+  end
+
   def proofreader
     proofreaders.first
   end
