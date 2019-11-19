@@ -4,26 +4,26 @@
   <%=@article.abstract%>
 </p>
 
-<p>
-  <strong><%= Event.model_name.human %>:</strong>
-  <%= link_to @event.name, event_path(@event) %>
-</p>
-
-<p>
-  <strong><%=Article.human_attribute_name(:user_id)%>:</strong>
-  <%= @article.user.email %>
-</p>
-
-<p>
-  <strong><%=Article.human_attribute_name(:status)%>:</strong>
-  <%=t @article.status, scope: [:activerecord, :enums, :article, :status] %>
-</p>
-
-<p>
-  <strong><%=Article.human_attribute_name(:proofreader)%>:</strong>
-  <%= @article.proofreader.name if @article.proofreader %>
-</p>
-
+<table class='table table-hover table-striped'>
+  <tbody>
+    <tr>
+      <th><%= Event.model_name.human %></th>
+      <td><%= link_to @event.name, event_path(@event) %></td>
+    </tr>
+    <tr>
+      <th><%=Article.human_attribute_name(:user_id)%></th>
+      <td><%= @article.user.email %></td>
+    </tr>
+    <tr>
+      <th><%=Article.human_attribute_name(:status)%></th>
+      <td><%=t @article.status, scope: [:activerecord, :enums, :article, :status] %></td>
+    </tr>
+    <tr>
+      <th><%=Article.human_attribute_name(:proofreader)%></th>
+      <td><%= @article.proofreader.name if @article.proofreader %></td>
+    </tr>
+  </tbody>
+</table>
 <table class='table table-hover table-striped'>
   <thead>
       <th><%=Author.model_name.human(count: @article.authors.count) %></th>

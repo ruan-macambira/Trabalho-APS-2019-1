@@ -1,51 +1,59 @@
-<h2 align='center'><%=@event.initials%></h2>
-<p>
-  <%=@event.name%>
-</p>
+<h1 class='text-center'><%=@event.name%>(<%=@event.initials%>)</h1>
 
-<p>
-  <strong><%=t :event_period, scope: [:labels, :models, :event] %>:</strong>
-  <%= t(:period, start: l(@event.event_start), finish: l(@event.event_finish), scope: %i[labels date])%>
-</p>
+<table class='table table-striped table-hover'>
+  <tbody>
+    <tr>
+      <th><%=t :event_period, scope: [:labels, :models, :event] %></th>
+      <td><%= t(:period, start: l(@event.event_start), finish: l(@event.event_finish), scope: %i[labels date])%></td>
+    </tr>
+    <tr>
+      <th><%=t :submission_period, scope: [:labels, :models, :event] %></th>
+      <td><%= t(:period, start: l(@event.submission_start), finish: l(@event.submission_finish), scope: %i[labels date])%></td>
+    </tr>
+    <tr>
+      <th><%=Field.model_name.human%></th>
+      <td><%=@event.field.name%></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<table class='table table-striped table-hover'>
+  <thead>
+    <th><%=Professor.model_name.human(count: @event.professors.count)%></th>
+  </thead>
+  <tbody>
+      <% @event.professors.each do |professor| %>
+      <tr><td><%=professor.name%><%= "(#{professor.email})" if user_signed_in? && current_user.admin?%></td></tr>
+      <% end %>
+  </tbody>
+</table>
+<table class='table table-striped table-hover'>
+  <thead>
+    <th><%=Keyword.model_name.human(count: @event.keywords.count)%></th>
+  </thead>
+  <tbody>
+      <% @event.keywords.each do |keyword| %>
+      <tr><td><%=keyword.word%></td></tr>
+      <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong><%=t :submission_period, scope: [:labels, :models, :event] %>:</strong>
-  <%= t(:period, start: l(@event.submission_start), finish: l(@event.submission_finish), scope: %i[labels date])%>
-</p>
-
-<p>
-  <strong><%=Field.model_name.human%>:</strong>
-  <%=@event.field.name%>
-</p>
-
-<p>
-  <strong><%=Professor.model_name.human(count: @event.professors.count)%>:</strong>
-  <ul>
-    <% @event.professors.each do |professor| %>
-    <li><%=professor.name%><%= "(#{professor.email})" if user_signed_in? && current_user.admin?%></li>
-    <% end %>
-  </ul>
-</p>
-
-<p>
-  <strong><%=Keyword.model_name.human(count: @event.keywords.count)%>:</strong>
-  <ul>
-    <% @event.keywords.each do |keyword| %>
-    <li><%=keyword.word%></li>
-    <% end %>
-  </ul>
-</p>
-
-<p>
-  <strong><%=Article.model_name.human(count: @articles.count)%>:</strong>
-  <table class='table'>
-    <thead>
+<table class='table table-hover table-striped'>
+  <thead>
+    <tr>
+      <th colspan=2><%=Article.model_name.human(count: @articles.count)%></th>
+    </tr>
+    <tr>
       <th>Título</th>
       <% if is_role? 'admin' %>
       <th> Status</th>
       <% end %>
-    </thead>
-    <tbody>
+    </tr>
+  </thead>
+  <tbody>
     <% @articles.each do |article| %>
     <tr>
       <td><%= link_to article.title, event_article_path(@event, article) %></td>
@@ -53,8 +61,7 @@
     </tr>
     <% end %>
   </tbody>
-  </table>
-</p>
+</table>
 
 <div class='row'>
   <div class='col'>
