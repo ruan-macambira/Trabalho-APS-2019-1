@@ -7,10 +7,16 @@
       title: Página Inicial
   events:
     index:
-      title: Eventos
+      title: Listagem de Eventos
+      new: Cadastro de Evento
   keywords:
     index:
-      title: Palavras-Chaves
+      title: Listagem de Palavras-Chaves
+      new: Cadastro de Palavra-Chave
   fields:
     index:
-      title: Áreas de Concentração
+      title: Listagem de Áreas de Concentração
+      new: Cadastro de Área de Concentração
+  users:
+    index:
+      title: Listagem de Usuários

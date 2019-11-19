@@ -6,12 +6,13 @@
     <% if user_signed_in? %>
       <% case current_user.role %>
       <% when 'student' %>
-        <%= link_to 'Artigos Submetidos', '#', class: 'list-group-item' %>
+        <%= link_to 'Artigos Submetidos', profile_articles_path(current_user), class: 'list-group-item' %>
       <% when 'professor' %>
         <%= link_to 'Revisões de Artigos', proofreadings_path, class: 'list-group-item' %>
       <% when 'admin' %>
-        <%= link_to 'Palavras-Chave', keywords_path, class: 'list-group-item' %> 
-        <%= link_to 'Áreas', fields_path, class: 'list-group-item' %>
+        <%= link_to User.model_name.human(count: 2), users_path, class: 'list-group-item' %>
+        <%= link_to Keyword.model_name.human(count: 2), keywords_path, class: 'list-group-item' %> 
+        <%= link_to Field.model_name.human(count: 2), fields_path, class: 'list-group-item' %>
       <% end %>
     <% end %>
   </div>

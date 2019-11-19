@@ -1,0 +1,19 @@
+<h1>Usuários</h1>
+<%= render 'search_form' %>
+<table class='table table-hover table-striped'>
+  <thead>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Tipo</th>
+  </thead>
+  <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= t user.role, scope: 'activerecord.enums.user.role' %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<%= paginate @users, theme: 'twitter-bootstrap-4' %>

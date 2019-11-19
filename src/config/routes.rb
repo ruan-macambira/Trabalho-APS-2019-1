@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   post 'field_professors', to: 'events#field_professors'
 
+  resources :users, only: :index do
+    get 'profile'
+  end
+
   resources :keywords, except: :show
   resources :fields, except: :show
   resources :events do
