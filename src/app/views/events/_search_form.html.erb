@@ -19,8 +19,8 @@
       <%= f.collection_select :keywords_id_in, @keywords, :id, :word, {}, multiple: true, class: 'form-control' %>
     </div>
   </div>
-  <div class='row'>
-    <div class='col' align=right>
+  <div class='form-row'>
+    <div class='form-group col' align=right>
       <%= link_to events_path, class: 'btn btn-secondary' do %>
         <i class='fas fa-trash'></i> <%= t 'buttons.general.clear'%>
       <% end %>

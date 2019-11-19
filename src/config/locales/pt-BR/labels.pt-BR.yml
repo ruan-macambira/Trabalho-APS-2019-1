@@ -2,6 +2,7 @@
   labels:
     date:
       period: '%{start} a %{finish}'
+      period_ago: 'Há %{period}'
     models:
       event:
         event_period: Período

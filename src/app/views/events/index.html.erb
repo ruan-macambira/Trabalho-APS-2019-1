@@ -31,14 +31,16 @@
     <% end %>
   </tbody>
 </table>
-<p>
-  <%= paginate @events, theme: 'twitter-bootstrap-4' %>
-</p>
 
 <hr>
 
 <div class='row'>
-  <div class='col' align=right>
-    <%= link_to 'Cadastrar Evento', new_event_path, class:'btn btn-primary' if current_user.present? && current_user.admin? %>
+  <div class='col-lg'>
+      <%= paginate @events, theme: 'twitter-bootstrap-4' %>
   </div>
+  <% if is_role? 'admin' %>
+  <div class='col-lg-auto'>
+    <%= link_to 'Cadastrar Evento', new_event_path, class:'btn btn-primary' %>
+  </div>
+  <% end %>
 </div>

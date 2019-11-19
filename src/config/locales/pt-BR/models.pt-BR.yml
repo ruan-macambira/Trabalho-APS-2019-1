@@ -36,6 +36,7 @@
         user_id: Usuário Postador
         authors: Autores
         event_id: Evento
+        created_at: Submissão
       event:
         name: Nome
         initials: Iniciais
@@ -71,3 +72,8 @@
           awaiting: Aguardando Abertura
           opened: Aberto
           closed: Fechado
+      user:
+        role:
+          admin: Administrador
+          professor: Professor
+          student: Aluno
