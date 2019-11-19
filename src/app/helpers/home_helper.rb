@@ -1,7 +1,7 @@
 module HomeHelper
   def articles_for_proofreadings(articles)
     if articles.any?
-      list_articles
+      list_articles(articles)
     else
       no_articles
     end
