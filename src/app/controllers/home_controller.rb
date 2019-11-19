@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       redirect_to root_path
       return
     end
-    @pending = Article.where(user: current_user).where(status: :pending)
-    @articles = Article.where(user: current_user).where.not(status: :pending)
+    @pending = Article.where(status: :pending).select {|x| x.proofreader == current_user }
+    @articles = Article.where.not(status: :pending).select {|x| x.proofreader == current_user }
   end
 end

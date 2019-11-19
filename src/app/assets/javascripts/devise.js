@@ -1,7 +1,6 @@
 $(function() {
   function load() {
     $('#user_type').change(function(e) {
-      console.log($('#user_type').val());
       switch($('#user_type').val()) {
         case 'Student':
           $('#form-professor').prop('hidden', true);

@@ -10,7 +10,9 @@
 <hr>
 <div class='row'>
   <div class='col' align=right>
-    <%= form.submit %>
+    <%= form.button class:'btn btn-primary' do %>
+      <%= t 'buttons.article.assign' %>
+    <% end %>
   </div>
 </div>
 <% end %>

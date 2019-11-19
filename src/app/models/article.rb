@@ -21,6 +21,10 @@ class Article < ApplicationRecord
     end
   end
 
+  def proofreader?(user)
+    proofreader == user
+  end
+
   def proofreader
     proofreaders.first
   end

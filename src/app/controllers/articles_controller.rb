@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
 
   def apply
     if @article.update(params.require(:article).permit(:status))
-      redirect_to [@event, @article], notice: I18n.t(@article.status, scope: 'notices.articles')
+      redirect_to [@event, @article], notice: I18n.t('notices.articles.proofreaded')
     else
       render :edit
     end

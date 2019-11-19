@@ -5,6 +5,8 @@
   home:
     index:
       title: Página Inicial
+    proofreadings:
+      title: Revisões de Artigos
   events:
     index:
       title: Listagem de Eventos

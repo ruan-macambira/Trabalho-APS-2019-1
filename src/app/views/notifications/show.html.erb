@@ -6,7 +6,7 @@
       <% @notifications.each do |notif| %>
       <tr>
         <td><%= l notif.created_at.advance(hours: -3), format: :short %></td>
-        <td><%= notif.message %></td>
+        <td><%= link_to notif.message, event_article_path(notif.article.event, notif.article) %></td>
       </tr>
       <% end %>
     </tbody>

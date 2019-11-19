@@ -17,9 +17,8 @@ Rails.application.routes.draw do
   resources :keywords, except: :show
   resources :fields, except: :show
   resources :events do
-    resources :articles, except: :index do
-      get 'assign'
-      get 'apply'
-    end
+    resources :articles, except: :index
+    patch 'articles/:id/assign', to: 'articles#assign', as: 'article_assign'
+    patch 'articles/:id/apply', to: 'articles#apply', as: 'article_apply'
   end
 end

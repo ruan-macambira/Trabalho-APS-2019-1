@@ -6,3 +6,6 @@
       clear: Limpar Filtros
       search: Buscar
       destroy: Remover %{model}
+    article:
+      assign: Atribuir Revisor
+      apply: Revisar

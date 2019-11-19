@@ -1,25 +1,16 @@
+<h1><%= @page_title %></h1>
+
 <table class='table table-striped table-hover'>
   <thead>
-    <th>Nome</th>
-    <td>Evento</td>
+    <th>Revisões Pendentes</th>
   </thead>
   <tbody>
-    <% @pending.each do |article|%>
-    <tr>
-      <td><%= link_to article.title, event_article_apply_path(article.event, article) %></td>
-      <td><%= article.event.initials %></td>
-    </tr>
-    <% end %>
+    <%= articles_for_proofreadings(@pending) %>
   </tbody>
   <thead>
     <th>Revisões Passadas</th>
   </thead>
   <tbody>
-    <% @articles.each do |article|%>
-    <tr>
-      <td><%= link_to article.title, event_article_apply_path(article.event, article) %></td>
-      <td><%= article.event.initials %></td>
-    </tr>
-    <% end %>
+    <%= articles_for_proofreadings(@articles) %>
   </tbody>
 </table>

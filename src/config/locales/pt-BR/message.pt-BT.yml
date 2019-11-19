@@ -6,7 +6,8 @@
         pending: O Artigo "%{article}" foi enviado para Revisão.
         failed: O Artigo "%{article}" não foi aprovado.
         passed: O Artigo "%{article}" foi aprovado.
-      professor:
+      proofreader:
         pending: Há um novo artigo a ser revisado (%{article})
+        none: Não há artigos
       admin:
         awaiting: Há um novo artigo (%{article}) submetido em "%{event}"

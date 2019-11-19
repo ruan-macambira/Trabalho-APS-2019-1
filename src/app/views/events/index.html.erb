@@ -3,11 +3,11 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Evento</th>
-      <th>Situação</th>
+      <th><%= sort_link @q, :name %></th>
+      <th><%= Event.human_attribute_name :status %></th>
       <% if Rails.env == 'development' %>
-      <th>Artigos</th>
-      <th>Professores</th>
+      <th><%= Event.human_attribute_name :article_ids %></th>
+      <th><%= Event.human_attribute_name :user_ids %></th>
       <% end %>
       <th colspan="3"></th>
     </tr>
@@ -23,7 +23,7 @@
         <td><%= event.professors.count %></td>
         <% end %>
         <td>
-          <%= link_to event, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do %>
+          <%= link_to event, method: :delete, title: 'Remover Evento', class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do %>
             <i class='fas fa-trash'></i>
           <% end %>
         </td>
